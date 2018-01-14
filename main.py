@@ -1,17 +1,18 @@
 #THIS IS NOT MY CODE
 #THIS BELONGS TO SENDWITHUS and is their BASIC AI on their Github!
 
-import bottle
+from flask import Flask, request
 import os
 import random
 
+app = Flask(__name__)
 
-@bottle.route('/static/<path:path>')
+@app.route('/static/<path:path>')
 def static(path):
     return bottle.static_file(path, root='static/')
 
 
-@bottle.post('/start')
+@app.post('/start')
 def start():
     data = bottle.request.json
     game_id = data['game_id']
