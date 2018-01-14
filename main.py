@@ -7,12 +7,12 @@ import random
 
 @application.route('/static/<path:path>')
 def static(path):
-    return applicationlication.static_file(path, root='static/')
+    return application.static_file(path, root='static/')
 
 
 @application.post('/start')
 def start():
-    data = bottle.request.json
+    data = application.request.json
     game_id = data['game_id']
     board_width = data['width']
     board_height = data['height']
@@ -46,6 +46,6 @@ def move():
 
 
 # Expose WSGI application (so gunicorn can find it)
-applicationlication = Flask(__name__)
+application = Flask(__name__)
 if __name__ == '__main__':
-    applicationlication.run(False, host=os.getenv('IP', '0.0.0.0'), port=os.getenv('PORT', '8080'))
+    application.run(False, host=os.getenv('IP', '0.0.0.0'), port=os.getenv('PORT', '8080'))
