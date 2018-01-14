@@ -5,14 +5,12 @@ from flask import Flask, request
 import os
 import random
 
-app = Flask(__name__)
-
-@app.route('/static/<path:path>')
+@application.route('/static/<path:path>')
 def static(path):
-    return app.static_file(path, root='static/')
+    return applicationlication.static_file(path, root='static/')
 
 
-@app.post('/start')
+@application.post('/start')
 def start():
     data = bottle.request.json
     game_id = data['game_id']
@@ -20,8 +18,8 @@ def start():
     board_height = data['height']
 
     head_url = '%s://%s/static/head.png' % (
-        app.request.urlparts.scheme,
-        app.request.urlparts.netloc
+        application.request.urlparts.scheme,
+        application.request.urlparts.netloc
     )
 
     # TODO: Do things with data
@@ -36,7 +34,7 @@ def start():
 
 @bottle.post('/move')
 def move():
-    data = app.request.get_json
+    data = application.request.get_json
 
     # TODO: Do things with data, this is LIKELY where alot of the code will be done
     directions = ['up', 'down', 'left', 'right']
@@ -47,7 +45,7 @@ def move():
     }
 
 
-# Expose WSGI app (so gunicorn can find it)
-application = Flask(__name__)
+# Expose WSGI application (so gunicorn can find it)
+applicationlication = Flask(__name__)
 if __name__ == '__main__':
-    application.run(False, host=os.getenv('IP', '0.0.0.0'), port=os.getenv('PORT', '8080'))
+    applicationlication.run(False, host=os.getenv('IP', '0.0.0.0'), port=os.getenv('PORT', '8080'))
