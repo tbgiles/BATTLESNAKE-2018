@@ -12,7 +12,8 @@ def static(path):
     return bottle.static_file(path, root='static/')
 
 
-@app.post('/start')
+@app.pos
+t('/start')
 def start():
     data = bottle.request.json
     game_id = data['game_id']
