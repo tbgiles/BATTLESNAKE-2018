@@ -19,7 +19,7 @@ def start_prog():
     language = request.args.get('language')
     height = request.args.get('height')
     width = request.args.get('width')
-    game_id = requests.args.get('game_id')
+    game_id = request.args.get('game_id')
 
     return """
     <div>language is {params}</div>
