@@ -13,13 +13,14 @@ def home():
     <img src="http://loremflickr.com/600/400">
     """.format(time=the_time)
 
-@app.route('/start')
+@app.route('/start', methods=['POST'])
 def start_prog():
+    data = request.args
     # TODO get request params
-    language = request.args.get('language')
-    height = request.args.get('height')
-    width = request.args.get('width')
-    game_id = request.args.get('game_id')
+    language = data.get('language')
+    height = data.get('height')
+    width = data.get('width')
+    game_id = data.get('game_id')
 
     return """
     <div>language is {params}</div>
