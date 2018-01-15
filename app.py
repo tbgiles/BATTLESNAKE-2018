@@ -23,11 +23,12 @@ def start_prog():
     game_id = data.get('game_id')
 
     return """
+    <div>Method is {meth_get}</div>
     <div>language is {params}</div>
     <div>language is {height}</div>
     <div>language is {width}</div>
     <div>language is {game_id}</div>
-    """.format(params=language, height=height, width=width, game_id=game_id)
+    """.format(meth_get=request.method, params=language, height=height, width=width, game_id=game_id)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
