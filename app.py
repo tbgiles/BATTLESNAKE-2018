@@ -15,12 +15,11 @@ def home():
 
 @app.route('/start', methods=['GET', 'POST'])
 def start_prog():
-    data = request.args
     # TODO get request params
-    language = data.get('language')
-    height = data.get('height')
-    width = data.get('width')
-    game_id = data.get('game_id')
+    language = request.args.get('language')
+    height = request.args.get('height')
+    width = request.args.get('width')
+    game_id = request.args.get('game_id')
 
     return """
     <div>Method is {meth_get}</div>
