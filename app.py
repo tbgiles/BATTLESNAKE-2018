@@ -13,7 +13,7 @@ def home():
     <img src="http://loremflickr.com/600/400">
     """.format(time=the_time)
 
-@app.route('/start', methods=['POST'])
+@app.route('/start')
 def start_prog():
     data = request.args
     # TODO get request params
