@@ -16,10 +16,17 @@ def home():
 @app.route('/start')
 def start_prog():
     # TODO get request params
-    height = 3
+    language = request.args.get('language')
+    height = request.args.get('height')
+    width = request.args.get('width')
+    game_id = requests.args.get('game_id')
+
     return """
-    <div>{params}</div>
-    """.format(params=height)
+    <div>language is {params}</div>
+    <div>language is {height}</div>
+    <div>language is {width}</div>
+    <div>language is {game_id}</div>
+    """.format(params=language, height=height, width=width, game_id=game_id)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
