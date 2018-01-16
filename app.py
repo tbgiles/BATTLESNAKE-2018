@@ -7,15 +7,11 @@ app = Flask(__name__)
 def start():
     #data = request.get_json()
     # TODO get request params
-    return {
-        "color": "#FF0000",
-        "secondary_color": "#00FF00",
-        "head_url": "http://placecage.com/c/100/100",
-        "name": "MY SNAKE",
-        "taunt": "What is happening?",
-        "head_type": "pixel",
-        "tail_type": "pixel"
-        }
+    return jsonify(
+        color="#FF0000",
+        secondary_color="#00FF00",
+        head_url="http://placecage.com/c/100/100"
+    )
 
 
 @app.route("/move", methods=["POST"])
@@ -25,10 +21,10 @@ def move():
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
 
-    return {
-        'move': random.choice(directions),
-        'taunt': 'YOLO'
-        }
+    return jsonify(
+    move = random.choice(directions), taunt = "YOLO"
+    )
+
 
 
 if __name__ == '__main__':
