@@ -11,7 +11,7 @@ def start():
         name = "Tristan's Snake",
         color = "#FF0000",
         secondary_color = "#00FF00",
-        head_url = "http://2.bp.blogspot.com/_qAms05FxvSw/TRy3kgEBjWI/AAAAAAAAAYY/xdK5e6w_P4s/s1600/The%2BRoom%2Bwe%2Bare%2Bexpecting%2521%2B.jpg"
+        head_url = "http://2.bp.blogspot.com/_qAms05FxvSw/TRy3kgEBjWI/AAAAAAAAAYY/xdK5e6w_P4s/s1600/The%2BRoom%2Bwe%2Bare%2Bexpecting%2521%2B.jpg",
         taunt = "Why, Lisa, why, WHY?!"
     )
 
