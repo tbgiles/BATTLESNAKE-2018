@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from datetime import datetime
-import os
+import os, random
 app = Flask(__name__)
 
 @app.route("/start", methods=["POST"])
@@ -8,6 +8,7 @@ def start():
     #data = request.get_json()
     # TODO get request params
     return jsonify(
+        name="Tristan's Snake",
         color="#FF0000",
         secondary_color="#00FF00",
         head_url="http://placecage.com/c/100/100"
@@ -22,7 +23,8 @@ def move():
     directions = ['up', 'down', 'left', 'right']
 
     return jsonify(
-    move = random.choice(directions), taunt = "YOLO"
+    move = random.choice(directions),
+    taunt = "YOLO"
     )
 
 
