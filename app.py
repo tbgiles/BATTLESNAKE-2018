@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from datetime import datetime
 import os, random
 
+app = Flask(__name__)
+
 @app.route("/start", methods=["POST"])
 def start():
     #data = request.get_json()
@@ -28,7 +30,5 @@ def move():
     taunt = "You're tearing me apart, Lisa!"
     )
 
-
-app = Flask(__name__)
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
