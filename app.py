@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 app = Flask(__name__)
 
-@app.route('/start', methods=['GET', 'POST'])
+@app.route("/start")
 def start():
     data = request.get_json()
     # TODO get request params
@@ -18,7 +18,7 @@ def start():
         }
 
 
-@app.route('/move', methods=['GET', 'POST'])
+@app.route("/move")
 def move():
     data = request.get_json()
 
