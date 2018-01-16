@@ -2,24 +2,33 @@ from flask import Flask, request
 from datetime import datetime
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
-
-    return """
-    <h1>Hello heroku</h1>
-    <p>It is currently {time}.</p>
-
-    <img src="http://loremflickr.com/600/400">
-    """.format(time=the_time)
-
 @app.route('/start', methods=['GET', 'POST'])
-def start_prog():
+def start():
+    data = request.get_json(force=False, silent=False, cache=True)
     # TODO get request params
-    height = request.form('height')
+    return {
+        "color": "#FF0000",
+        "secondary_color": "#00FF00",
+        "head_url": "http://placecage.com/c/100/100",
+        "name": "MY SNAKE",
+        "taunt": "What is happening?"
+        "head_type": "pixel",
+        "tail_type": "pixel"
+        }
 
 
-    return "<div>{height}</div>".format(height=height)
+@app.route('/move', methods=['GET', 'POST'])
+def move():
+    data = request.get_json(force=False, silent=False, cache=True)
+
+    # TODO: Do things with data
+    directions = ['up', 'down', 'left', 'right']
+
+    return {
+        'move': random.choice(directions),
+        'taunt': 'YOLO'
+        }
+
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
