@@ -16,20 +16,18 @@ def home():
 @app.route('/start', methods=['GET', 'POST'])
 def start_prog():
     # TODO get request params
-    language = request.args.get('language')
-    height = request.args.get('height')
-    width = request.args.get('width')
-    game_id = request.args.get('game_id')
-    data = request.form
+    height = request.form('height')
+    width = request.form('width')
+    game_id = request.form('game_id')
+    is_json_type = request.is_json
 
 
     return """
-    <div>Method is {meth_get}</div>
-    <div>width is {params}</div>
-    <div>Data is {data}</div>
-    <div>language is {width}</div>
+    <div>ISJSON is {jsonify}</div>
+    <div>WIDTH is {width}</div>
+    <div>HEIGHT: is {height}</div>
     <div>language is {game_id}</div>
-    """.format(meth_get=request.method, params=width, data=data, width=width, game_id='asdhkj32408a')
+    """.format(jsonify=is_json_type, width=width, height=height, game_id=game_id)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
