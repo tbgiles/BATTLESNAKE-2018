@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/start', methods=['GET', 'POST'])
 def start():
-    data = request.get_json(force=False, silent=False, cache=True)
+    data = request.get_json()
     # TODO get request params
     return {
         "color": "#FF0000",
@@ -19,7 +19,7 @@ def start():
 
 @app.route('/move', methods=['GET', 'POST'])
 def move():
-    data = request.get_json(force=False, silent=False, cache=True)
+    data = request.get_json()
 
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
