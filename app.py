@@ -20,7 +20,7 @@ def start_prog():
     height = request.args.get('height')
     width = request.args.get('width')
     game_id = request.args.get('game_id')
-    data = request.get_json(force=False, silent=False, cache=True)
+    data = request.form
 
 
     return """
