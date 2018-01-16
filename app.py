@@ -12,7 +12,7 @@ def start():
         "secondary_color": "#00FF00",
         "head_url": "http://placecage.com/c/100/100",
         "name": "MY SNAKE",
-        "taunt": "What is happening?"
+        "taunt": "What is happening?",
         "head_type": "pixel",
         "tail_type": "pixel"
         }
