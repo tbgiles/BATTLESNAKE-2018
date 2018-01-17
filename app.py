@@ -18,9 +18,9 @@ def get_move_letters(x, y, my_snake_x, my_snake_y):
             return "right"
     else:
         if disp_y < 0:
-            return "down"
-        else:
             return "up"
+        else:
+            return "down"
 
 def get_next_move(food, height, width, snakes, dead_snake, my_snake_x, my_snake_y):
     min_dist = width + height
