@@ -22,7 +22,7 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
         #return "down"
 
     #if abs(disp_x) > abs(disp_y):
-    if disp_x < 0 and not game_grid[[my_snake_x - 1, my_snake_y]]:
+    if disp_x < 0 and not game_grid[(my_snake_x - 1, my_snake_y)] == 1:
         return "left"
     elif not game_grid[(my_snake_x + 1, my_snake_y)] == 1:
         return "right"
