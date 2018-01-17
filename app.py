@@ -24,13 +24,13 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
     #if abs(disp_x) > abs(disp_y):
     if disp_x < 0 and game_grid[(my_snake_x - 1, my_snake_y)] == 0:
         return "left"
-    elif not game_grid[(my_snake_x + 1, my_snake_y)] == 0:
+    elif game_grid[(my_snake_x + 1, my_snake_y)] == 0:
         return "right"
     elif disp_y < 0 and game_grid[(my_snake_x, my_snake_y - 1)] == 0:
         return "up"
     elif game_grid[(my_snake_x, my_snake_y + 1)] == 0:
         return "down"
-    finally:
+    else:
         return "up"
 
 def get_next_move(food, height, width, snakes, dead_snake, my_snake_x, my_snake_y, game_grid):
