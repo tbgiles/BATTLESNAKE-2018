@@ -13,17 +13,17 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
 
     print(disp_x)
 
-    allowed_move = {
-    "left": game_grid[(my_snake_x - 1, my_snake_y)],
-    "right": game_grid[(my_snake_x + 1, my_snake_y)],
-    "up": game_grid[(my_snake_x, my_snake_y - 1)],
-    "down": game_grid[(my_snake_x, my_snake_y + 1)]
-    }
+    #allowed_move = {
+    #"left": game_grid[(my_snake_x - 1, my_snake_y)],
+    #"right": game_grid[(my_snake_x + 1, my_snake_y)],
+    #"up": game_grid[(my_snake_x, my_snake_y - 1)],
+    #"down": game_grid[(my_snake_x, my_snake_y + 1)]
+    #}
 
     if True:#abs(disp_x) > abs(disp_y):
-        if disp_x < 0 and not my_snake_x == 0 and allowed_move["left"] == 0:
+        if disp_x < 0 and not my_snake_x == 0 and game_grid[(my_snake_x - 1, my_snake_y)] == 0:
             return "left"
-        elif not my_snake_x == width and allowed_move["right"] == 0:
+        elif not my_snake_x == width and game_grid[(my_snake_x + 1, my_snake_y)] == 0:
             return "right"
         else:
             return "up"
