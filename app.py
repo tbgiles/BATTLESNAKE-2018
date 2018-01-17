@@ -99,7 +99,7 @@ def move():
 
     return jsonify(
     move = get_next_move(food, height, width, snakes, dead_snake, my_snake_x, my_snake_y, game_grid), #TODO This is what controls where the snake goes!
-    taunt = "You're tearing me apart, Lisa!"
+    taunt = "width:{} height:{}".format(width,height)#"You're tearing me apart, Lisa!"
     )
 
 if __name__ == "__main__":
