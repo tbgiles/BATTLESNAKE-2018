@@ -11,6 +11,21 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
     disp_x = x - my_snake_x
     disp_y = y - my_snake_y
 
+    allowed_move = {
+    "left": game_grid[(my_snake_x - 1, my_snake_y)],
+    "right": game_grid[(my_snake_x + 1, my_snake_y)],
+    "up": game_grid[(my_snake_x, my_snake_y - 1)],
+    "down": ame_grid[(my_snake_x, my_snake_y + 1)]
+    }
+
+    if True:#abs(disp_x) > abs(disp_y):
+        if disp_x < 0 and allowed_move["left"] == 0:
+            return "left"
+        elif allowed_move["right"] == 0:
+            return "right"
+        else:
+            return "up"
+
     #if abs(disp_x) > abs(disp_y):
     #if disp_x < 0 and not game_grid[[my_snake_x - 1, my_snake_y]]:
         #return "left"
@@ -21,17 +36,6 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
     #else:
         #return "down"
 
-    #if abs(disp_x) > abs(disp_y):
-    if disp_x < 0 and game_grid[(my_snake_x - 1, my_snake_y)] == 0:
-        return "left"
-    elif game_grid[(my_snake_x + 1, my_snake_y)] == 0:
-        return "right"
-    if disp_y < 0 and game_grid[(my_snake_x, my_snake_y - 1)] == 0:
-        return "up"
-    elif game_grid[(my_snake_x, my_snake_y + 1)] == 0:
-        return "down"
-    else:
-        return "up"
 
 def get_next_move(food, height, width, snakes, dead_snake, my_snake_x, my_snake_y, game_grid):
     min_dist = width + height
