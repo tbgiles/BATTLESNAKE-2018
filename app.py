@@ -11,6 +11,8 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
     disp_x = x - my_snake_x
     disp_y = y - my_snake_y
 
+    print(disp_x)
+
     allowed_move = {
     "left": game_grid[(my_snake_x - 1, my_snake_y)],
     "right": game_grid[(my_snake_x + 1, my_snake_y)],
