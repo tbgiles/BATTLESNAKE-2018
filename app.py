@@ -21,9 +21,9 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
     }
 
     if True:#abs(disp_x) > abs(disp_y):
-        if disp_x < 0 and allowed_move["left"] == 0:
+        if disp_x < 0 and not my_snake_x == 0 and allowed_move["left"] == 0:
             return "left"
-        elif allowed_move["right"] == 0:
+        elif not my_snake_x == width and allowed_move["right"] == 0:
             return "right"
         else:
             return "up"
