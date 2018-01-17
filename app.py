@@ -10,6 +10,9 @@ app = Flask(__name__) #App is now an instance of Flask.
 @app.route("/start", methods=["POST"])
 def start():
     data = request.get_json()
+    game_id = data.get("game_id")
+    height = data.get("height")
+    width = data.get("width")
 
     # TODO get request params
     return jsonify(
@@ -21,7 +24,7 @@ def start():
         tail_type = "pixel",
         secondary_color = "#000000",
 
-        data = str(data)
+        height = str(height)
     )
 
 
