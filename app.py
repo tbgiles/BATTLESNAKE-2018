@@ -17,7 +17,7 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
     "left": game_grid[(my_snake_x - 1, my_snake_y)],
     "right": game_grid[(my_snake_x + 1, my_snake_y)],
     "up": game_grid[(my_snake_x, my_snake_y - 1)],
-    "down": ame_grid[(my_snake_x, my_snake_y + 1)]
+    "down": game_grid[(my_snake_x, my_snake_y + 1)]
     }
 
     if True:#abs(disp_x) > abs(disp_y):
