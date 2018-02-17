@@ -2,6 +2,9 @@ import a_star, graph, math, sys
 
 def setup(food, width, height, snakes):
     grid_options = []
+    snake_grid = []
+    food_grid = []
+    
     #General grid setup
     for width in range(0, width + 1):
         for height in range(0, height + 1):
