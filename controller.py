@@ -34,7 +34,7 @@ def get_my_snake_coordinates(snakes, your_id):
 def get_closest_food(food_grid, head_x, head_y):
     current_minimum = 10000
     target_position = food_grid[0]
-    for position in food_grid
+    for position in food_grid:
         pellet_distance = a_star.euclidean((head_x, head_y),position)
         if pellet_distance < current_minimum:
             current_minimum = pellet_distance
@@ -52,7 +52,7 @@ def get_move_letter(start, end):
     elif deltaY > 0: return 'up'
     elif deltaX < 0: return 'left'
     elif deltaY < 0: return 'down'
-    else return 'right'
+    else: return 'right'
 
 
 def get_move(grid_options, target, head_x, head_y):

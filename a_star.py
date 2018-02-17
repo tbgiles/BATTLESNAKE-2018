@@ -1,4 +1,4 @@
-import graph, sys, random, Queue
+import graph, sys, random, queue
 
 # DISTANCE HEURISTICS-----------------------------------------------------------
 
@@ -55,7 +55,7 @@ def a_star(game_grid, start, end, heuristic='default'):
         heuristic = 'default'
     heuristic = heuristic_fns[heuristic]
 
-    frontier = Queue.PriorityQueue()
+    frontier = queue.PriorityQueue()
     if position_passable(game_grid, start):
         frontier.put((0, start)) # aka open set
         came_from = {start:None} # doubles as the closed set

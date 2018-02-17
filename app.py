@@ -51,7 +51,7 @@ def move():
 
 
     return jsonify(
-    move = next_move, #TODO This is what controls where the snake goes!
+    move = 'left',#next_move, #TODO This is what controls where the snake goes!
     taunt = "width:{} height:{}".format(width,height)#"You're tearing me apart, Lisa!"
     )
 
