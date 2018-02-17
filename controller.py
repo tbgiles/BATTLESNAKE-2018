@@ -16,8 +16,8 @@ def setup(food, width, height, snakes):
 
     #Snake locations:
     for snake in snakes:
-        snake_grid[snake] = 1
-        general_grid = 1
+        snake_grid[snake] = 2
+        general_grid = 2
 
     grid_options[0] = snake_grid
     grid_options[1] = food_grid
@@ -56,6 +56,6 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y):
-    path = a_star.a_star(grid_options[0], (head_x, head_y), target )
+    path = a_star.a_star(grid_options[0], (head_x, head_y), target)
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
-    return get_move_letter((head_x, head_y), target)
+    return get_move_letter((head_x, head_y), desired_next_position)

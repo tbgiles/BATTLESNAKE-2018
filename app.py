@@ -4,68 +4,12 @@
 from flask import Flask, request, jsonify
 from datetime import datetime
 import os, random, math
+import controller
 
 app = Flask(__name__) #App is now an instance of Flask.
 
-def astar ():
-    return "Implement this!"
-
-def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
-    disp_x = x - my_snake_x
-    disp_y = y - my_snake_y
-
-    #allowed_move = {
-    #"left": game_grid[(my_snake_x - 1, my_snake_y)],
-    #"right": game_grid[(my_snake_x + 1, my_snake_y)],
-    #"up": game_grid[(my_snake_x, my_snake_y - 1)],
-    #"down": game_grid[(my_snake_x, my_snake_y + 1)]
-    #}
-
-    if True:#abs(disp_x) > abs(disp_y):
-        if disp_x < 0 and not my_snake_x == 0 and game_grid[(my_snake_x - 1, my_snake_y)] == 0:
-            return "left"
-        elif disp_x > 0 and not my_snake_x == 19 and game_grid[(my_snake_x + 1, my_snake_y)] == 0:
-            return "right"
-        elif disp_y < 0:
-            return "up"
-        else:
-            return "down"
-
-    #if abs(disp_x) > abs(disp_y):
-    #if disp_x < 0 and not game_grid[[my_snake_x - 1, my_snake_y]]:
-        #return "left"
-    #elif not game_grid[[my_snake_x + 1, my_snake_y]] == 1:
-    #    return "right"
-    #elif disp_y < 0 and not game_grid[[my_snake_x, my_snake_y + 1]] == 1:
-    #    return "up"
-    #else:
-        #return "down"
-
-
-def get_next_move(food, height, width, snakes, dead_snake, my_snake_x, my_snake_y, game_grid):
-    min_dist = width + height #THIS IS A TEST DO NOT USE
-    min_x = 0
-    min_y = 0
-    for pellet in food:
-        x = pellet[0]
-        y = pellet[1]
-        dist = math.sqrt((x-my_snake_x)**2 + (y-my_snake_y)**2)
-        if dist <= min_dist:
-            min_dist = dist
-            min_x = x
-            min_y = y
-    return get_move_letters(min_x, min_y, my_snake_x, my_snake_y, game_grid)
-
 @app.route("/start", methods=["POST"])
 def start():
-    data = request.get_json()
-    game_id = data.get("game_id")
-    height = data.get("height")
-    width = data.get("width")
-
-    height += 30
-
-    # TODO get request params
     return jsonify(
         color = "#FFFFFF",
         name = "Tommy Wiseau",
@@ -79,7 +23,7 @@ def start():
 
 @app.route("/move", methods=["POST"])
 def move():
-    game_grid = {}
+    game_grid = []
     data = request.get_json()
     food = data.get("food") #Array
     game_id = data.get("game_id")
@@ -90,22 +34,26 @@ def move():
     width = data.get("width")
     you = data.get("you")
 
-    for x in range(0, width + 1):
-        for y in range(0, height + 1):
-            game_grid[(x, y)] = 0
+    #NOTE grid_options[0] = snake_grid
+    #NOTE grid_options[1] = food_grid
+    #NOTE grid_options[2] = general_grid
+    grid_options = controller.setup(food.get("coords"), width, height, snakes.get("coords"))
+    my_snake_coords = controller.get_my_snake_coordinates(snakes)
+    my_snake_head_x = my_snake_coords[0][0]
+    my_snake_head_y = my_snake_coords[0][1]
 
-    for snake in snakes:
-        for coordinate_pair in snake.get("coords"):
-            game_grid[tuple(coordinate_pair)] = 1;
-        if snake.get("id") == you:
-            my_snake_x = snake.get("coords")[0][0]
-            my_snake_y = snake.get("coords")[0][1]
-            #TODO Maybe simplify this to a 1x2 list?
+    #Search for the coordinates of the closest food pellet
+    target_food = controller.get_closest_food(grid_options[1], my_snake_x, my_snake_y)
+
+    #Get the next move based on the pellet
+    next_move = controller.get_move(grid_options, target_food, my_snake_x, my_snake_y)
+
+
 
     return jsonify(
-    move = get_next_move(food, height, width, snakes, dead_snake, my_snake_x, my_snake_y, game_grid), #TODO This is what controls where the snake goes!
+    move = next_move, #TODO This is what controls where the snake goes!
     taunt = "width:{} height:{}".format(width,height)#"You're tearing me apart, Lisa!"
     )
 
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True)
+    app.run(host='0.0.0.0', debug=True, use_reloader=True)
