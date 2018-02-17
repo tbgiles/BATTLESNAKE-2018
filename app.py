@@ -7,6 +7,9 @@ import os, random, math
 
 app = Flask(__name__) #App is now an instance of Flask.
 
+def astar ():
+    return "Implement this!"
+
 def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
     disp_x = x - my_snake_x
     disp_y = y - my_snake_y
@@ -40,7 +43,7 @@ def get_move_letters(x, y, my_snake_x, my_snake_y, game_grid):
 
 
 def get_next_move(food, height, width, snakes, dead_snake, my_snake_x, my_snake_y, game_grid):
-    min_dist = width + height
+    min_dist = width + height #THIS IS A TEST DO NOT USE
     min_x = 0
     min_y = 0
     for pellet in food:
