@@ -6,11 +6,11 @@ def setup(food, width, height, snakes):
     food_grid = []
 
     #General grid setup
-    for width in range(0, width + 1):
-        for height in range(0, height + 1):
+    for x in range(0, width + 1):
+        for y in range(0, height + 1):
             #food_grid[(width, height)] = 0
-            snake_grid[width][height] = 0
-            general_grid[width][height] = 0
+            snake_grid[x][y] = 0
+            general_grid[x][y] = 0
 
     #Food locations
     for [x, y] in food:
