@@ -1,9 +1,9 @@
-import a_star, graph, math, sys
+import a_star, graph, math, sys, numpy
 
 def setup(food, width, height, snakes):
-    grid_options = []
-    snake_grid = []
-    food_grid = []
+    grid_options = numpy.zeroes((10,10))
+    snake_grid = numpy.zeroes((10,10))
+    food_grid = numpy.zeroes((10,10))
 
     #General grid setup
     for x in range(0, width + 1):
