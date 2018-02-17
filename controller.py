@@ -4,25 +4,25 @@ def setup(food, width, height, snakes):
     grid_options = []
     snake_grid = []
     food_grid = []
-    
+
     #General grid setup
     for width in range(0, width + 1):
         for height in range(0, height + 1):
             #food_grid[(width, height)] = 0
-            snake_grid[(width, height)] = 0
-            general_grid[(width, height)] = 0
+            snake_grid[width][height] = 0
+            general_grid[width][height] = 0
 
     #Food locations
     for [x, y] in food:
-        food_grid[(x,y)] = 1
-        general_grid[(x,y)] = 1
+        food_grid[x][y] = 1
+        general_grid[x][y] = 1
 
     #Snake locations:
     for snake in snakes:
         current_snake_coordinates = snake.get('coords')
         for [x, y] in current_snake_coordinates:
-            snake_grid[(x,y)] = 1
-            general_grid[(x,y)] = 1
+            snake_grid[x][y] = 1
+            general_grid[x][y] = 1
 
     grid_options[0] = snake_grid
     grid_options[1] = food_grid
