@@ -10,9 +10,9 @@ def setup(food, width, height, snakes):
             general_grid[(width, height)] = 0
 
     #Food locations
-    for pellet in food:
-        food_grid[pellet] = 1
-        general_grid[pellet] = 1
+    for [x, y] in food:
+        food_grid[(x,y)] = 1
+        general_grid[(x,y)] = 1
 
     #Snake locations:
     for snake in snakes:
