@@ -31,6 +31,15 @@ def setup(food, width, height, snakes):
     grid_options.append(food_grid)
     grid_options.append(general_grid)
 
+    print('')
+    for x in range(0, width):
+        print('')
+        for y in range(0, height):
+            if (y,x) in snake_grid:
+                print('X', end='')
+            else:
+                print('0', end='')
+
     return grid_options
 
 def crows_dist(me, you):
