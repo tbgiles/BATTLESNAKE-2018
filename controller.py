@@ -76,7 +76,15 @@ def get_move_letter(start, end):
 
 def get_move(grid_options, target, head_x, head_y, height, width):
     path = astar.dont(grid_options[0], (head_x, head_y), target, width, height)
-    print(path)
+    print('')
+    for x in range(0, width):
+        print('')
+        for y in range(0, height):
+            if (x,y) in path:
+                print('X')
+            else:
+                print('0')
+
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
     print(desired_next_position)
 
