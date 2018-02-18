@@ -43,9 +43,9 @@ def get_my_snake_coordinates(snakes, your_id):
 def get_closest_food(food_grid, head_x, head_y):
     current_minimum = 10000
     for position in food_grid:
-        print('head x: ' + head_x)
-        print('head y: '+ head_y)
-        print('Target: '+position)
+        print('head x: {}'.format(head_x))
+        print('head y: {}'.format(head_y))
+        print('Target: {}'.format(position))
         pellet_distance = a_star.euclidean((head_x, head_y),position)
         if pellet_distance < current_minimum:
             current_minimum = pellet_distance
