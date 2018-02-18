@@ -38,7 +38,7 @@ def move():
     #NOTE grid_options[1] = food_grid
     #NOTE grid_options[2] = general_grid
     grid_options = controller.setup(food, width, height, snakes)
-    my_snake_coords = controller.get_my_snake_coordinates(snakes)
+    my_snake_coords = controller.get_my_snake_coordinates(snakes, game_id)
     my_snake_head_x = my_snake_coords[0][0]
     my_snake_head_y = my_snake_coords[0][1]
 
