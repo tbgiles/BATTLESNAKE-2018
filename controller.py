@@ -1,16 +1,18 @@
 import a_star, graph, math, sys, numpy
 
 def setup(food, width, height, snakes):
-    grid_options = numpy.zeroes((10,10))
-    snake_grid = numpy.zeroes((10,10))
-    food_grid = numpy.zeroes((10,10))
 
+    generic_grid = []
     #General grid setup
-    for x in range(0, width + 1):
-        for y in range(0, height + 1):
-            #food_grid[(width, height)] = 0
-            snake_grid[x][y] = 0
-            general_grid[x][y] = 0
+    for x in range(0, width):
+        new_list = []
+        for y in range(0, height):
+            new_list.append(0)
+        generic_grid.append(new_list)
+
+    food_grid = generic_grid[:][:]
+    general_grid = generic_grid[:][:]
+    snake_grid = generic_grid[:][:]
 
     #Food locations
     for [x, y] in food:
@@ -24,9 +26,9 @@ def setup(food, width, height, snakes):
             snake_grid[x][y] = 1
             general_grid[x][y] = 1
 
-    grid_options[0] = snake_grid
-    grid_options[1] = food_grid
-    grid_options[2] = general_grid
+    grid_options.append(snake_grid)
+    grid_options.append(food_grid)
+    grid_options.append(general_grid)
 
     return grid_options
 
