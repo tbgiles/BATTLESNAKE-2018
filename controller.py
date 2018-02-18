@@ -51,7 +51,7 @@ def get_closest_food(food_list, head_x, head_y):
         if pellet_distance < current_minimum:
             current_minimum = pellet_distance
             target_position = position
-    return target_position
+    return tuple(target_position)
 
 def get_move_letter(start, end):
     currX = start[0]
@@ -68,7 +68,7 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y, height, width):
-    path = astar.dont(grid_options[0], [head_x, head_y], target, width, height)
+    path = astar.dont(grid_options[0], (head_x, head_y), target, width, height)
     print(grid_options[0])
     if path:
         desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
