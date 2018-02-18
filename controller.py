@@ -13,6 +13,7 @@ def setup(food, width, height, snakes):
     general_grid = generic_grid[:][:]
     snake_grid = generic_grid[:][:]
 
+    food_grid = []
     #Food locations
     for [x, y] in food:
         food_grid.append([x,y])
