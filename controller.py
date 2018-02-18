@@ -68,10 +68,11 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y, height, width):
-    path = astar.dont(grid_options[0], (head_x, head_y), target, width, height)
+    path = astar.dont(grid_options[0], [head_x, head_y], target, width, height)
     print(grid_options[0])
     if path:
         desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
+        print(desired_next_position)
     else:
         return "left"
 
