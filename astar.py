@@ -40,7 +40,7 @@ def dont(grid, startPoint, endPoint, width, height):
     print(endPoint)
     print('grid')
     print(grid)
-    return save_daddy_plz(grid, width, height).astar(startPoint, endPoint)
+    return list(save_daddy_plz(grid, width, height).astar(startPoint, endPoint))
 #start = (0,1)  # we choose to start at the upper left corner
 #goal = (5,0)  # we want to reach the lower right corner
 
