@@ -60,20 +60,24 @@ def get_move_letter(start, end):
     nextY = end[1]
     deltaX = nextX - currX
     deltaY = nextY - currY
-    if deltaX > 0: return 'right'
-    elif deltaY > 0: return 'up'
-    elif deltaX < 0: return 'left'
-    elif deltaY < 0: return 'down'
-    else: return 'right'
+    print('dx')
+    print(deltaX)
+    print('dy')
+    print(deltaY)
+    if deltaX > 0:
+        return 'right'
+    elif deltaY > 0:
+        return 'down'
+    elif deltaX < 0:
+        return 'left'
+    elif deltaY < 0:
+        return 'up'
 
 
 def get_move(grid_options, target, head_x, head_y, height, width):
     path = astar.dont(grid_options[0], (head_x, head_y), target, width, height)
     print(path)
-    if path:
-        desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
-        print(desired_next_position)
-    else:
-        return "left"
+    desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
+    print(desired_next_position)
 
     return get_move_letter((head_x, head_y), desired_next_position)
