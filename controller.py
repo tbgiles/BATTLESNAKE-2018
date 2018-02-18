@@ -80,7 +80,7 @@ def get_move(grid_options, target, head_x, head_y, height, width):
     for x in range(0, width):
         print('')
         for y in range(0, height):
-            if (x,y) in path:
+            if (y,x) in path:
                 print('X', end='')
             else:
                 print('0', end='')
