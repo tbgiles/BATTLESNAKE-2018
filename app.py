@@ -43,10 +43,10 @@ def move():
     my_snake_head_y = my_snake_coords[0][1]
 
     #Search for the coordinates of the closest food pellet
-    target_food = controller.get_closest_food(grid_options[1], my_snake_x, my_snake_y)
+    target_food = controller.get_closest_food(grid_options[1], my_snake_head_x, my_snake_head_y)
 
     #Get the next move based on the pellet
-    next_move = controller.get_move(grid_options, target_food, my_snake_x, my_snake_y)
+    next_move = controller.get_move(grid_options, target_food, my_snake_head_x, my_snake_head_y)
 
 
 
