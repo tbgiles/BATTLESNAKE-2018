@@ -18,6 +18,10 @@ class AStar:
             self.out_openset = True
             self.came_from = None
 
+        #NOTE Defininng what less than means with concern to the class
+        def __lt__(self, b):
+            return self.fscore < b.fscore
+
     class SearchNodeDict(dict):
 
         def __missing__(self, k):
