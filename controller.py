@@ -10,14 +10,12 @@ def setup(food, width, height, snakes):
             new_list.append(None)
         generic_grid.append(new_list)
 
-    food_grid = generic_grid[:][:]
     general_grid = generic_grid[:][:]
     snake_grid = generic_grid[:][:]
 
     #Food locations
     for [x, y] in food:
-        food_grid[x][y] = 1
-        general_grid[x][y] = 1
+        food_grid.append([x,y])
 
     #Snake locations:
     for snake in snakes:
@@ -40,9 +38,9 @@ def get_my_snake_coordinates(snakes, your_id):
             return snake.get('coords')
 
 #NOTE returns a position tuple of closest food pellet
-def get_closest_food(food_grid, head_x, head_y):
+def get_closest_food(food_list, head_x, head_y):
     current_minimum = 10000
-    for position in food_grid:
+    for position in food_list:
         print('head x: {}'.format(head_x))
         print('head y: {}'.format(head_y))
         print('Target: {}'.format(position))
