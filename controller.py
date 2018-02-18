@@ -1,4 +1,4 @@
-import a_star, graph, math, sys, numpy
+import a_star, graph, math, sys
 
 def setup(food, width, height, snakes):
 
