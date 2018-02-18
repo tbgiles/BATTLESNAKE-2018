@@ -1,4 +1,4 @@
-import astar, graph, math, sys
+import astarobject, graph, math, sys
 
 def setup(food, width, height, snakes):
 
@@ -84,17 +84,10 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y, height, width):
-    path = astar.dont(grid_options[0], (head_x, head_y), target, width, height)
-    print('')
-    for y in range(0, width):
-        print('')
-        for x in range(0, height):
-            if (x,y) in path:
-                print('X', end='')
-            else:
-                print('0', end='')
-
+    path = astarobject.compute(grid_options[0], (head_x, head_y), target, width, height)
+    if path:
+        path = list(path)
+    else:
+        return 'up'
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
-    print(desired_next_position)
-
     return get_move_letter((head_x, head_y), desired_next_position)
