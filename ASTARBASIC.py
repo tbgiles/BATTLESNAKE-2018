@@ -2,21 +2,21 @@
 from abc import ABCMeta, abstractmethod
 from heapq import heappush, heappop
 
-Infinite = float('inf')
+infinityNum = float('inf')
 
 class AStar:
+    __metaclass__ = ABCMeta
     class SearchNode:
+        #NOTE No need to waste time in RAM, we know what data needs to be accessed and saved
+        __slots__ = ('data', 'gscore', 'fscore', 'closed', 'came_from', 'out_openset')
 
-        def __init__(self, data, gscore=Infinite, fscore=Infinite):
+        def __init__(self, data, gscore=infinityNum, fscore=infinityNum):
             self.data = data
             self.gscore = gscore
             self.fscore = fscore
             self.closed = False
             self.out_openset = True
             self.came_from = None
-
-        def __lt__(self, b):
-            return self.fscore < b.fscore
 
     class SearchNodeDict(dict):
 
