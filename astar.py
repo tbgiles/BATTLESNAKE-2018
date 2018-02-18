@@ -34,6 +34,10 @@ class save_daddy_plz(AStar):
         return[(nx, ny) for nx, ny in[(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)]if 0 <= nx < self.width and 0 <= ny < self.height and self.lines[ny][nx] == 1]
 
 def dont(grid, startPoint, endPoint, width, height):
+    print('start')
+    print(startPoint)
+    print('end')
+    print(endPoint)
     return list(save_daddy_plz(grid, width, height).astar(startPoint, endPoint))
 #start = (0,1)  # we choose to start at the upper left corner
 #goal = (5,0)  # we want to reach the lower right corner
