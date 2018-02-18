@@ -36,7 +36,7 @@ def setup(food, width, height, snakes):
 def crows_dist(me, you):
     (x1, y1) = me
     (x2, y2) = you
-    return math.abs(math.hypot(x2 - x1, y2 - y1))
+    return abs(math.hypot(x2 - x1, y2 - y1))
 
 def get_my_snake_coordinates(snakes, your_id):
     for snake in snakes:
