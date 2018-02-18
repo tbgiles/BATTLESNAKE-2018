@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-""" generic A-Star path searching algorithm """
-
 from abc import ABCMeta, abstractmethod
 from heapq import heappush, heappop
 
@@ -93,24 +91,5 @@ class AStar:
                     neighbor.out_openset = False
                     heappush(openSet, neighbor)
         return None
-
-
-def find_path(start, goal, neighbors_fnct, reversePath=False, heuristic_cost_estimate_fnct=lambda a, b: Infinite, distance_between_fnct=lambda a, b: 1.0, is_goal_reached_fnct=lambda a, b: a == b):
-    """A non-class version of the path finding algorithm"""
-    class FindPath(AStar):
-
-        def heuristic_cost_estimate(self, current, goal):
-            return heuristic_cost_estimate_fnct(current, goal)
-
-        def distance_between(self, n1, n2):
-            return distance_between_fnct(n1, n2)
-
-        def neighbors(self, node):
-            return neighbors_fnct(node)
-
-        def is_goal_reached(self, current, goal):
-            return is_goal_reached_fnct(current, goal)
-    return FindPath().astar(start, goal, reversePath)
-
 
 __all__ = ['AStar', 'find_path']
