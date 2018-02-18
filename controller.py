@@ -81,9 +81,9 @@ def get_move(grid_options, target, head_x, head_y, height, width):
         print('')
         for y in range(0, height):
             if (x,y) in path:
-                print('X')
+                print('X', end='')
             else:
-                print('0')
+                print('0', end='')
 
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
     print(desired_next_position)
