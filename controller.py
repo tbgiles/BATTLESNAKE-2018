@@ -7,7 +7,7 @@ def setup(food, width, height, snakes):
     for x in range(0, width):
         new_list = []
         for y in range(0, height):
-            new_list.append(0)
+            new_list.append(None)
         generic_grid.append(new_list)
 
     food_grid = generic_grid[:][:]
@@ -67,7 +67,7 @@ def get_move_letter(start, end):
 def get_move(grid_options, target, head_x, head_y, height, width):
     path = a_star.a_star(grid_options[0], (head_x, head_y), target, height, width)
     print(grid_options[0])
-    if not path.empty():
+    if path:
         desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
     else:
         return "left"
