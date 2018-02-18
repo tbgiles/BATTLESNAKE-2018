@@ -1,4 +1,4 @@
-import astarobject, graph, math, sys
+import astarobject, math, sys
 
 def setup(food, width, height, snakes):
 
