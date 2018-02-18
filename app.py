@@ -1,17 +1,23 @@
 # Battlesnake 2018 Competition AI
-# Written by Tristan Giles - 2018
+# Written by:   Kelly Knights,
+#               Duncan MacDonald,
+#               Laura Kissack,
+#               Liam Scott-Montcrief and
+#               Tristan Giles
+# Use whatever of this code you like LOL
+# March 2018
 
 from flask import Flask, request, jsonify
 from datetime import datetime
-import os, random, math
-import controller
+import os, random, math, controller
+#NOTE Controller is OUR files!
 
 app = Flask(__name__) #App is now an instance of Flask.
 
 @app.route("/start", methods=["POST"])
 def start():
     return jsonify(
-        color = "#FFFFFF",
+        color = "#800000",
         name = "Tommy Wiseau",
         head_url = "http://2.bp.blogspot.com/_qAms05FxvSw/TRy3kgEBjWI/AAAAAAAAAYY/xdK5e6w_P4s/s1600/The%2BRoom%2Bwe%2Bare%2Bexpecting%2521%2B.jpg",
         # The below fields are NOT REQUIRED
@@ -42,20 +48,16 @@ def move():
     my_snake_head_x = my_snake_coords[0][0]
     my_snake_head_y = my_snake_coords[0][1]
 
-    print('x: {}'.format(my_snake_head_x))
-    print('y: {}'.format(my_snake_head_y))
-
-    #Search for the coordinates of the closest food pellet
+    # Search for the coordinates of the closest food pellet
     target_food = controller.get_closest_food(grid_options[1], my_snake_head_x, my_snake_head_y)
 
-    #Get the next move based on the pellet
+    # Get the next move based on the pellet
     next_move = controller.get_move(grid_options, target_food, my_snake_head_x, my_snake_head_y, height, width)
 
-
-
+    # Return the move in the JSON object
     return jsonify(
-    move = next_move,   #next_move, #TODO This is what controls where the snake goes!
-    taunt = "width:{} height:{}".format(width,height)#"You're tearing me apart, Lisa!"
+    move = next_move, #NOTE This is what controls where the snake goes!
+    taunt = "You're tearing me apart, Lisa!"
     )
 
 if __name__ == "__main__":
