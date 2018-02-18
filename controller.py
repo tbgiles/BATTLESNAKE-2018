@@ -33,6 +33,11 @@ def setup(food, width, height, snakes):
 
     return grid_options
 
+def crows_dist(me, you):
+    (x1, y1) = me
+    (x2, y2) = you
+    return math.abs(math.hypot(x2 - x1, y2 - y1))
+
 def get_my_snake_coordinates(snakes, your_id):
     for snake in snakes:
         if snake.get('id') == your_id:
@@ -42,7 +47,7 @@ def get_my_snake_coordinates(snakes, your_id):
 def get_closest_food(food_list, head_x, head_y):
     current_minimum = 10000
     for position in food_list:
-        pellet_distance = a_star.euclidean((head_x, head_y),position)
+        pellet_distance = crows_dist((head_x, head_y),position)
         if pellet_distance < current_minimum:
             current_minimum = pellet_distance
             target_position = position
