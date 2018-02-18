@@ -35,7 +35,7 @@ def setup(food, width, height, snakes):
     for x in range(0, width):
         print('')
         for y in range(0, height):
-            if (y,x) in snake_grid:
+            if snake_grid[y][x] == 0:
                 print('X', end='')
             else:
                 print('0', end='')
