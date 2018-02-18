@@ -26,6 +26,8 @@ def setup(food, width, height, snakes):
             snake_grid[x][y] = 1
             general_grid[x][y] = 1
 
+    grid_options = []
+
     grid_options.append(snake_grid)
     grid_options.append(food_grid)
     grid_options.append(general_grid)
