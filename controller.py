@@ -7,7 +7,7 @@ def setup(food, width, height, snakes):
     for x in range(0, width):
         new_list = []
         for y in range(0, height):
-            new_list.append(None)
+            new_list.append(1)
         generic_grid.append(new_list)
 
     general_grid = generic_grid[:][:]
@@ -22,8 +22,8 @@ def setup(food, width, height, snakes):
     for snake in snakes:
         current_snake_coordinates = snake.get('coords')
         for [x, y] in current_snake_coordinates:
-            snake_grid[x][y] = 1
-            general_grid[x][y] = 1
+            snake_grid[x][y] = None
+            general_grid[x][y] = None
 
     grid_options = []
 
@@ -42,9 +42,6 @@ def get_my_snake_coordinates(snakes, your_id):
 def get_closest_food(food_list, head_x, head_y):
     current_minimum = 10000
     for position in food_list:
-        print('head x: {}'.format(head_x))
-        print('head y: {}'.format(head_y))
-        print('Target: {}'.format(position))
         pellet_distance = a_star.euclidean((head_x, head_y),position)
         if pellet_distance < current_minimum:
             current_minimum = pellet_distance
