@@ -70,7 +70,7 @@ def a_star(game_grid, start, end, height, width, heuristic='default'):
             # calculate tentative overall distance
             tentative_past_dist = past_dist[current] + game_grid[neighbor[1]][neighbor[0]]
             if neighbor not in came_from or past_dist[neighbor] > tentative_past_dist:
-                print(neighbor)
+                #print(neighbor)
                 # insert into frontier by priority of lower overall_tentative_dist
                 heuristic_dist = heuristic(neighbor, end)
                 overall_tentative_dist = tentative_past_dist + heuristic_dist
