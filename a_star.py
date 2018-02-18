@@ -25,7 +25,7 @@ heuristic_fns = {
 
 # check if the tile at the position on the graph is an integer
 def position_passable(game_grid, position, height, width):
-    return position[0] >= 0 and position[1] >= 0 and position[0] < width and position[1] < height and game_grid[position[1]][position[0]]
+    return position[0] >= 0 and position[1] >= 0 and position[0] < width and position[1] < height and game_grid[position[0]][position[1]]
 
 
 # get the available neighbors of position
@@ -68,7 +68,7 @@ def a_star(game_grid, start, end, height, width, heuristic='default'):
 
         for neighbor in get_neighbors(game_grid, current, height, width):
             # calculate tentative overall distance
-            tentative_past_dist = past_dist[current] + game_grid[neighbor[1]][neighbor[0]]
+            tentative_past_dist = past_dist[current] + game_grid[neighbor[0]][neighbor[1]]
             if neighbor not in came_from or past_dist[neighbor] > tentative_past_dist:
                 # insert into frontier by priority of lower overall_tentative_dist
                 heuristic_dist = heuristic(neighbor, end)
