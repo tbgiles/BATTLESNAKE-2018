@@ -5,12 +5,7 @@ from heapq import heappush, heappop
 Infinite = float('inf')
 
 class AStar:
-    __metaclass__ = ABCMeta
-    __slots__ = ()
-
     class SearchNode:
-        __slots__ = ('data', 'gscore', 'fscore',
-                     'closed', 'came_from', 'out_openset')
 
         def __init__(self, data, gscore=Infinite, fscore=Infinite):
             self.data = data
@@ -91,5 +86,3 @@ class AStar:
                     neighbor.out_openset = False
                     heappush(openSet, neighbor)
         return None
-
-__all__ = ['AStar', 'find_path']
