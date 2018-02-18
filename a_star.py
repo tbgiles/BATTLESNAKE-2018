@@ -54,15 +54,10 @@ def a_star(game_grid, start, end, height, width, heuristic='default'):
     heuristic = heuristic_fns[heuristic]
 
     frontier = queue.PriorityQueue()
-    if position_passable(game_grid, start, height, width):
-        frontier.put((0, start)) # aka open set
-        came_from = {start:None} # doubles as the closed set
-        past_dist = {start:0} # aka the past score g(x)
-    else:
-        raise Exception("invalid starting position")
 
-    if not position_passable(game_grid, end, height, width):
-        raise Exception("invalid end position")
+    frontier.put((0, start)) # aka open set
+    came_from = {start:None} # doubles as the closed set
+    past_dist = {start:0} # aka the past score g(x)
 
     while not frontier.empty():
         current = frontier.get()[1]
