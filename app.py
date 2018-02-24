@@ -9,7 +9,7 @@
 
 from flask import Flask, request, jsonify
 from datetime import datetime
-import os, random, math, controller
+import os, random, math, controller, datetime
 #NOTE Controller is OUR files!
 
 app = Flask(__name__) #App is now an instance of Flask.
@@ -29,7 +29,9 @@ def start():
 
 @app.route("/move", methods=["POST"])
 def move():
-    game_grid = []
+    #game_grid = []
+    print("START TIME -----")
+    startTime = datetime.time();
     data = request.get_json()
     food = data.get("food") #Array
     game_id = data.get("game_id")
@@ -53,7 +55,9 @@ def move():
 
     # Get the next move based on the pellet
     next_move = controller.get_move(grid_options, target_food, my_snake_head_x, my_snake_head_y, height, width)
-
+    endTime = datetime.time()
+    totalTime = startTime - endTime
+    print("END TIME TOTAL ----- {}".format(totalTime))
     # Return the move in the JSON object
     return jsonify(
     move = next_move, #NOTE This is what controls where the snake goes!
