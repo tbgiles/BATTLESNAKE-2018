@@ -31,7 +31,7 @@ def start():
 def move():
     #game_grid = []
     print("START TIME -----")
-    startTime = datetime.time();
+    startTime = datetime.time().microsecond
     data = request.get_json()
     food = data.get("food") #Array
     game_id = data.get("game_id")
@@ -55,7 +55,7 @@ def move():
 
     # Get the next move based on the pellet
     next_move = controller.get_move(grid_options, target_food, my_snake_head_x, my_snake_head_y, height, width)
-    endTime = datetime.time()
+    endTime = datetime.time().microsecond
     totalTime = startTime - endTime
     print("END TIME TOTAL ----- {}".format(totalTime))
     # Return the move in the JSON object
