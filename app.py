@@ -33,7 +33,7 @@ def start():
 def move():
     #game_grid = []
     #print("START TIME -----")
-    start = timer()
+    start = timer() #NOTE THIS IS OUR TIMER START POINT
     data = request.get_json()
     food = data.get("food") #Array
     game_id = data.get("game_id")
@@ -59,8 +59,7 @@ def move():
     next_move = controller.get_move(grid_options, target_food, my_snake_head_x, my_snake_head_y, height, width)
 
     end = timer()
-    totalTime = end - start
-    print("END TIME TOTAL ----- {}".format(totalTime))
+    print("END TIME TOTAL ----- {}ms".format((end - start) * 1000))
 
     # Return the move in the JSON object
     return jsonify(
