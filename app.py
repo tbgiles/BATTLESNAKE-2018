@@ -59,7 +59,8 @@ def move():
 
     #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
     end = timer()
-    print("RUNTIME -----> {0}ms. MAX 200ms, so we are currently using {1}%".format(((end - start) * 1000),(((end - start) * 1000) / 2))
+    print("RUNTIME -----> {0}ms. MAX 200ms, so we are currently using {1}%".format(((end - start) * 1000),(((end - start) * 1000) / 2)))
+
 
     # Return the move in the JSON object
     return jsonify(
