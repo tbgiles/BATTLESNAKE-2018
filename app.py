@@ -36,11 +36,11 @@ def move():
     start = timer() #NOTE THIS IS OUR TIMER START POINT
     data = request.get_json()
     food = data.get("food") #Array
-    game_id = data.get("game_id")
+    #game_id = data.get("game_id")
     height = data.get("height")
     snakes = data.get("snakes") #Array
-    dead_snake = data.get("dead_snake") #array
-    turn = data.get("turn")
+    #dead_snake = data.get("dead_snake") #array
+    #turn = data.get("turn")
     width = data.get("width")
     you = data.get("you")
 
@@ -58,6 +58,7 @@ def move():
     # Get the next move based on the pellet
     next_move = controller.get_move(grid_options, target_food, my_snake_head_x, my_snake_head_y, height, width)
 
+    #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
     end = timer()
     print("END TIME TOTAL ----- {}ms".format((end - start) * 1000))
 

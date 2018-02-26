@@ -17,7 +17,7 @@ class AStar:
             self.out_openset = True
             self.came_from = None
 
-        #NOTE Defininng what less than means with concern to the class
+        #NOTE Defining what less than means with concern to the class
         def __lt__(self, b):
             return self.fscore < b.fscore
 
@@ -34,18 +34,16 @@ class AStar:
 
     @abstractmethod
     def distance_between(self, n1, n2):
-        """Gives the real distance between two adjacent nodes n1 and n2 (i.e n2 belongs to the list of n1's neighbors).
-           n2 is guaranteed to belong to the list returned by the call to neighbors(n1).
-           This method must be implemented in a subclass."""
+        #NOTE gives an implemented difference between nodes. Defined in the the object file
         raise NotImplementedError
 
     @abstractmethod
     def neighbors(self, node):
-        """For a given node, returns (or yields) the list of its neighbors. this method must be implemented in a subclass"""
+        #NOTE For a given node, returns list of neighbours
         raise NotImplementedError
 
     def is_goal_reached(self, current, goal):
-        """ returns true when we can consider that 'current' is the goal"""
+        #NOTE Returns true when 'current' is the goal
         return current == goal
 
     def reconstruct_path(self, last, reversePath=False):

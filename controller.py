@@ -88,6 +88,7 @@ def get_move(grid_options, target, head_x, head_y, height, width):
     if path:
         path = list(path)
     else:
-        return 'up'
+        return 'up' #TODO what do we do if there's no path?
+        
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
     return get_move_letter((head_x, head_y), desired_next_position)
