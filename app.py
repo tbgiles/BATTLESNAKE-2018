@@ -44,10 +44,9 @@ def move():
     width = data.get("width")
     you = data.get("you")
 
-    #NOTE grid_options[0] = snake_grid
+    #NOTE grid_options[0] = general_grid
     #NOTE grid_options[1] = food_grid
-    #NOTE grid_options[2] = general_grid
-    grid_options = controller.setup(food, width, height, snakes)
+    grid_options = controller.grid_setup(food, width, height, snakes)
     my_snake_coords = snakes[0].get('coords')
     my_snake_head_x = my_snake_coords[0][0]
     my_snake_head_y = my_snake_coords[0][1]
@@ -60,7 +59,7 @@ def move():
 
     #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
     end = timer()
-    print("END TIME TOTAL ----- {}ms".format((end - start) * 1000))
+    print("RUNTIME -----> {0}ms. MAX 200ms, so we are currently using {1}%".format((end - start) * 1000),((end - start) * 1000) / 2))
 
     # Return the move in the JSON object
     return jsonify(
