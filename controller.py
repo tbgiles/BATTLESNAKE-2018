@@ -57,6 +57,10 @@ def get_closest_food(food_list, head_x, head_y):
             target_position = position
     return tuple(target_position)
 
+def get_neighbors(node):
+    (x, y) = node #changed from x, y
+    return[(nx, ny) for nx, ny in[(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)] if 0 <= nx < self.width and 0 <= ny < self.height and self.lines[ny][nx] == 1]
+
 def get_move_letter(start, end):
     currX = start[0]
     currY = start[1]
@@ -85,7 +89,7 @@ def get_move(grid_options, target, head_x, head_y, height, width):
     if path:
         path = list(path)
     else:
-        return random(astarobject.AStarAlgorithm.neighbors((head_x, head_y)));
+        return random(get_neighbors((head_x, head_y)))
         #return 'up' #TODO what do we do if there's no path?
 
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
