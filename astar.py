@@ -85,6 +85,7 @@ class AStar:
                     heappush(openSet, neighbor)
         return None
 
+#NOTE this is the implementation
 class AStarAlgorithm(AStar):
 
     #NOTE each node is an (x,y) tuple that represents a reachable position
