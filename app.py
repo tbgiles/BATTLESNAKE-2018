@@ -47,7 +47,11 @@ def move():
     #NOTE grid_options[0] = general_grid
     #NOTE grid_options[1] = food_grid
     grid_options = controller.grid_setup(food, width, height, snakes)
-    my_snake_coords = snakes[0].get('coords')
+    mySnake = []
+    for snake in snakes:
+        if snake.get("id") == you:
+            mySnake = snake;
+    my_snake_coords = mySnake.get('coords')
     my_snake_head_x = my_snake_coords[0][0]
     my_snake_head_y = my_snake_coords[0][1]
 
