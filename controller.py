@@ -85,7 +85,7 @@ def get_move(grid_options, target, head_x, head_y, height, width):
     if path:
         path = list(path)
     else:
-        return random(astarobject.neighbors((head_x, head_y)));
+        return random(astarobject.AStarAlgorithm.neighbors((head_x, head_y)));
         #return 'up' #TODO what do we do if there's no path?
 
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
