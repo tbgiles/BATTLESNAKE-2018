@@ -16,6 +16,7 @@ class AStar:
             self.closed = False
             self.out_openset = True
             self.came_from = None
+            print("Init")
 
         #NOTE Defininng what less than means with concern to the class
         def __lt__(self, b):
@@ -25,6 +26,7 @@ class AStar:
         def __missing__(self, k):
             v = AStar.SearchNode(k)
             self.__setitem__(k, v)
+            print("Search")
             return v
 
     @abstractmethod
@@ -70,6 +72,7 @@ class AStar:
             current = heappop(openSet)
             if self.is_goal_reached(current.data, goal):
                 return self.reconstruct_path(current, reversePath)
+            print("not goal")
             current.out_openset = True
             current.closed = True
             for neighbor in [searchNodes[n] for n in self.neighbors(current.data)]:
