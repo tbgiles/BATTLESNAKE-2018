@@ -51,6 +51,7 @@ def move():
     for snake in snakes:
         if snake.get("id") == you:
             mySnake = snake;
+            break
     my_snake_coords = mySnake.get('coords')
     my_snake_head_x = my_snake_coords[0][0]
     my_snake_head_y = my_snake_coords[0][1]
