@@ -29,3 +29,12 @@ class AStarAlgorithm(AStar):
 
 def compute(grid, startPoint, endPoint, width, height):
     return AStarAlgorithm(grid, width, height).astar(startPoint, endPoint)
+
+
+start = (0,1)  # we choose to start at the upper left corner
+goal = (5,0)  # we want to reach the lower right corner
+
+# let's solve it
+#foundPath = list(save_daddy_plz(tristansmaze).astar(start, goal))
+#print(foundPath)
+
