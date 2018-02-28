@@ -22,10 +22,10 @@ class AStar:
             return self.fscore < b.fscore
 
     class SearchNodeDict(dict):
-        def __missing__(self, nodeName):
-            newNode = AStar.SearchNode(nodeName)
-            self.__setitem__(nodeName, newNode)
-            return newNode
+        def __missing__(self, k):
+            v = AStar.SearchNode(k)
+            self.__setitem__(k, v)
+            return v
 
     @abstractmethod
     def heuristic_cost_estimate(self, current, goal):
