@@ -12,6 +12,8 @@ from datetime import datetime
 import os, random, math, controller
 #NOTE Controller is OUR files!
 
+from timeit import default_timer as timer
+
 app = Flask(__name__) #App is now an instance of Flask.
 
 @app.route("/start", methods=["POST"])
@@ -29,21 +31,22 @@ def start():
 
 @app.route("/move", methods=["POST"])
 def move():
-    game_grid = []
+    #game_grid = []
+    #print("START TIME -----")
+    start = timer() #NOTE THIS IS OUR TIMER START POINT
     data = request.get_json()
     food = data.get("food") #Array
-    game_id = data.get("game_id")
+    #game_id = data.get("game_id")
     height = data.get("height")
     snakes = data.get("snakes") #Array
-    dead_snake = data.get("dead_snake") #array
-    turn = data.get("turn")
+    #dead_snake = data.get("dead_snake") #array
+    #turn = data.get("turn")
     width = data.get("width")
     you = data.get("you")
 
-    #NOTE grid_options[0] = snake_grid
+    #NOTE grid_options[0] = general_grid
     #NOTE grid_options[1] = food_grid
-    #NOTE grid_options[2] = general_grid
-    grid_options = controller.setup(food, width, height, snakes)
+    grid_options = controller.grid_setup(food, width, height, snakes)
     my_snake_coords = snakes[0].get('coords')
     my_snake_head_x = my_snake_coords[0][0]
     my_snake_head_y = my_snake_coords[0][1]
@@ -53,6 +56,11 @@ def move():
 
     # Get the next move based on the pellet
     next_move = controller.get_move(grid_options, target_food, my_snake_head_x, my_snake_head_y, height, width)
+
+    #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
+    end = timer()
+    print("RUNTIME -----> {0}ms. MAX 200ms, so we are currently using {1}%".format(((end - start) * 1000),(((end - start) * 1000) / 2)))
+
 
     # Return the move in the JSON object
     return jsonify(

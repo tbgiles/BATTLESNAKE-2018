@@ -2,10 +2,6 @@ from astarclass import AStar
 import sys
 import math
 
-tristansmaze = [[0,1,1,0,1,1],
-                [1,1,1,0,1,1],
-                [0,1,1,1,1,1]]
-
 class AStarAlgorithm(AStar):
 
     #NOTE each node is an (x,y) tuple that represents a reachable position
@@ -28,10 +24,11 @@ class AStarAlgorithm(AStar):
     #NOTE returns the nodes surrounding the snake head that are traversable
     def neighbors(self, node):
         (x, y) = node #changed from x, y
-        return[(nx, ny) for nx, ny in[(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)]if 0 <= nx < self.width and 0 <= ny < self.height and self.lines[ny][nx] == 1]
+        return[(nx, ny) for nx, ny in[(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)] if 0 <= nx < self.width and 0 <= ny < self.height and self.lines[ny][nx] == 1]
 
 def compute(grid, startPoint, endPoint, width, height):
     return AStarAlgorithm(grid, width, height).astar(startPoint, endPoint)
+
 
 start = (0,1)  # we choose to start at the upper left corner
 goal = (5,0)  # we want to reach the lower right corner
@@ -39,3 +36,4 @@ goal = (5,0)  # we want to reach the lower right corner
 # let's solve it
 #foundPath = list(save_daddy_plz(tristansmaze).astar(start, goal))
 #print(foundPath)
+
