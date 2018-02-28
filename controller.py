@@ -1,4 +1,4 @@
-import astarobject, math, sys
+import astarobject, math, sys, random
 
 def grid_setup(food, width, height, snakes):
 
