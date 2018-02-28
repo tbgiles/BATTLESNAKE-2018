@@ -22,6 +22,7 @@ class AStarAlgorithm(AStar):
         return 1
 
     #NOTE returns the nodes surrounding the snake head that are traversable
+    @staticmethod
     def neighbors(self, node):
         (x, y) = node #changed from x, y
         return[(nx, ny) for nx, ny in[(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)] if 0 <= nx < self.width and 0 <= ny < self.height and self.lines[ny][nx] == 1]
