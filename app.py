@@ -76,7 +76,7 @@ def move():
 
 @app.route("/end", methods=["POST"])
 def end():
-    return 200
+    return status.HTTP_200_OK
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, use_reloader=True)
