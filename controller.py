@@ -98,9 +98,9 @@ def get_move(grid_options, target, head_x, head_y, height, width):
     path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
     if path:
         path = list(path)
-    #else:
+    else:
         ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
-        #return 'up' #TODO what do we do if there's no path?
+        return 'up' #TODO what do we do if there's no path?
 
     desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
     return get_move_letter((head_x, head_y), desired_next_position)
