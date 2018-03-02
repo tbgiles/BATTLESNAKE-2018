@@ -4,7 +4,7 @@
 #               Laura Kissack,
 #               Liam Scott-Montcrief and
 #               Tristan Giles
-# Use whatever of this code you like LOL
+# Use whatever of this code you like
 # March 2018
 
 import os, random, math, controller
