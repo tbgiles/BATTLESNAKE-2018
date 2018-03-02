@@ -1,4 +1,4 @@
-![#f03c15](https://i.ytimg.com/vi/0KHqw2o0bpY/maxresdefault.jpg)
+![#f03c15](https://static-cdn.jtvnw.net/twitch-event-images-v2/84776231-3405-4895-9f8c-2306d9b9422f-320x180)
 # BATTLESNAKE 2018
 ## A BattleSnake competition AI written by me!
 ## (Written in Python with gUnicorn and Flask!)
