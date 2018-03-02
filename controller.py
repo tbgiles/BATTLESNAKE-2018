@@ -9,6 +9,8 @@ def grid_setup(food, width, height, snakes):
         for x in range(0, width):
             new_list.append(1)
         generic_grid.append(new_list)
+        print(width)
+        print(height)
 
     food_grid = []
     #Food locations
