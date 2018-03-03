@@ -136,7 +136,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
                     print('')
                     print(path)
 
-        print current_path
+        print(current_path)
         return get_move_letter((head_x, head_y), current_path[1])
 
 
