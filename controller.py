@@ -84,21 +84,20 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
-    if myHealth < 50:
-        path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
-        if path:
-            path = list(path)
-        else:
-            return 'left'
-        return get_move_letter((head_x, head_y), path[1])
+    #if myHealth < 50:
+        #path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
+        #if path:
+        #    path = list(path)
+        #else:
+            #return 'left'
+        #return get_move_letter((head_x, head_y), path[1])
+    tailx = mySnake[-1].get("x")
+    taily = mySnake[-1].get("y")
+    print('')
+    print("X coordinate:{}, Y coordinate:{}".format(tailx, taily))
+    path = astar.compute(grid_options[0], (head_x, head_y), (tailx, taily), width, height)
+    if path:
+        path = list(path)
     else:
-        tailx = mySnake[-1].get("x")
-        taily = mySnake[-1].get("y")
-        print('')
-        print("X coordinate:{}, Y coordinate:{}".format(tailx, taily))
-        path = astar.compute(grid_options[0], (head_x, head_y), (tailx, taily), width, height)
-        if path:
-            path = list(path)
-        else:
-            return 'left'
-        return get_move_letter((head_x, head_y), path[1])
+        return 'left'
+    return get_move_letter((head_x, head_y), path[1])
