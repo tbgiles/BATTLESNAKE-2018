@@ -52,7 +52,7 @@ def move():
 
 
     #NOTE grid_options[0] = general_grid // grid_options[1] = food_grid
-    grid_options = controller.grid_setup(food, width, height, snakes, mySnake)
+    grid_options = controller.grid_setup(food, width, height, snakes, mySnake, you.get("id"))
 
     #NOTE Now, set our coordinates!
     mySnakeX = mySnake[0].get("x")

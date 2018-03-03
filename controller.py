@@ -1,6 +1,6 @@
 import astar, math, sys, random
 
-def grid_setup(food, width, height, snakes, mySnake):
+def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
 
     generic_grid = []
     #General grid setup
@@ -20,6 +20,26 @@ def grid_setup(food, width, height, snakes, mySnake):
     #Snake locations:
     for snake in snakes:
         body = snake.get("body").get("data")
+        snakeID = snake.get("id")
+        if snakeID not == mySnakeID:
+            head = body[0]
+            headX = head.get("x")
+            headY = head.get("y")
+
+            top = headY - 1
+            bottom = headY + 1
+            left = headX - 1
+            right = headX + 1
+            
+            if top > 0:
+                generic_grid[top][headX] = 0
+            if bottom < height:
+                generic_grid[bottom][headX] = 0
+            if left > 0:
+                generic_grid[headY][left] = 0
+            if right < width:
+                generic_grid[headY][right] = 0
+
         for point in body:
             pointX = point.get("x")
             pointY = point.get("y")
@@ -85,6 +105,9 @@ def get_move_letter(start, end):
 
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
     a_star_object = astar.AStarAlgorithm(grid_options[0], width, height)
+
+
+
     myTail = (mySnake[-1].get("x"), mySnake[-1].get("y"))
     myLength = len(mySnake)
     if myLength > 3 and myHealth > 85:
