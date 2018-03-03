@@ -36,13 +36,15 @@ def move():
     food = data.get("food").get("data") #Array
     snakes = data.get("snakes").get("data") #Array
     you = data.get("you")
-    myHealth = you.get("body").get("health")
+    myHealth = you.get("health")
     myLength = you.get("body").get("length")
     mySnake = you.get("body").get("data")
 
 
     if debug:
         start = timer() #NOTE THIS IS OUR TIMER START POINT
+        print('')
+        print("Health:{}".format(myHealth))
         print('')
         print("Game height:{}, Game width:{}".format(height,width))
         print('')
