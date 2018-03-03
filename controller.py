@@ -84,8 +84,6 @@ def get_closest_food(food_list, head_x, head_y):
             target_position = position
     return tuple(target_position)
 
-def get_
-
 def get_neighbors(node, lines, height, width):
     (x, y) = node #changed from x, y
     return[(nx, ny) for nx, ny in[(x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y)] if 0 <= nx < width and 0 <= ny < height and lines[ny][nx] == 1]
