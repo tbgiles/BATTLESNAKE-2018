@@ -120,6 +120,8 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         grid_options[0][myTail[1]][myTail[0]] = 0
         if path:
             path = list(path)
+            print('')
+            print(path)
         else:
             return 'right'
         return get_move_letter((head_x, head_y), path[1])
@@ -131,13 +133,13 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
             path = a_star_object.astar((head_x, head_y), tuple(food))
             if path:
                 path = list(path)
-                print('')
-                print(path)
                 if len(path) < current_minimum:
                     current_minimum = len(path)
                     current_path = path
 
         if current_path:
+            print('')
+            print(path)
             return get_move_letter((head_x, head_y), current_path[1])
         else:
             return 'right'
