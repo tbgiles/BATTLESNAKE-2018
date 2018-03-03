@@ -157,20 +157,6 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     else:
         return 'right'
 
-    def avoidTail(head, tail):
-        (headx, heady) = head
-        if ((headx - 1), heady) == tail
-            return False
-        if ((headx), heady - 1) == tail
-            return False
-        if ((headx + 1), heady) == tail
-            return False
-        if ((headx), head + 1) == tail
-            return False
-        return True
-
-if myLength > 3 and myHealth > 65 and avoidTail((head_x,head_y),myTail):
-
         #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
         #for neighbour in neighbourList:
             #if grid_options[0][neighbour[0], neighbour[1]] != 0:
