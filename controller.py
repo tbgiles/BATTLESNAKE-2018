@@ -83,11 +83,22 @@ def get_move_letter(start, end):
         return 'up'
 
 
-def get_move(grid_options, target, head_x, head_y, height, width):
-    path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
-    if path:
-        path = list(path)
+def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
+    if health < 50:
+        path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
+        if path:
+            path = list(path)
+        else:
+            ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
+            return 'left' #TODO what do we do if there's no path?
+        return get_move_letter((head_x, head_y), path[1])
     else:
-        ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
-        return 'left' #TODO what do we do if there's no path?
-    return get_move_letter((head_x, head_y), path[1])
+        x = mySnake[-1].get("x")
+        y = mySnake[-1].get("y")
+        path = astar.compute(grid_options[0], (head_x, head_y), (x,y), width, height)
+        if path:
+            path = list(path)
+        else:
+            ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
+            return 'left' #TODO what do we do if there's no path?
+        return get_move_letter((head_x, head_y), path[1])

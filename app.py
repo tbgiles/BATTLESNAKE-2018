@@ -60,7 +60,7 @@ def move():
     target_food = controller.get_closest_food(grid_options[1], mySnakeX, mySnakeY)
 
     #NOTE Get the next move based on the pellet
-    next_move = controller.get_move(grid_options, target_food, mySnakeX, mySnakeY, height, width)
+    next_move = controller.get_move(grid_options, target_food, mySnakeX, mySnakeY, height, width, mySnake, myHealth)
 
     if debug:
         #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
