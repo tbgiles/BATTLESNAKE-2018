@@ -88,9 +88,9 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     myTail = (mySnake[-1].get("x"), mySnake[-1].get("y"))
     myLength = len(mySnake)
     if myLength > 3 and myHealth > 85:
-        grid_options[0][testTarget[1]][testTarget[0]] = 1
+        grid_options[0][myTail[1]][myTail[0]] = 1
         path = a_star_object.astar((head_x, head_y), myTail)
-        grid_options[0][testTarget[1]][testTarget[0]] = 0
+        grid_options[0][myTail[1]][myTail[0]] = 0
         if path:
             path = list(path)
         else:
