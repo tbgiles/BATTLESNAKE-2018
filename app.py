@@ -44,6 +44,8 @@ def start():
 
 @app.route("/move", methods=["POST"])
 def move():
+    global height
+    global width
     #start = timer() #NOTE THIS IS OUR TIMER START POINT
     data = request.get_json()
     food = data.get("food").get("data") #Array
