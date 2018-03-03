@@ -105,11 +105,23 @@ def get_move_letter(start, end):
         return 'up'
 
 
+def get_shortest_path_to_food(food_list, head_x, head_y):
+    current_minimum = float('inf')
+    current_path = None
+    for food in food_list:
+        path = a_star_object.astar((head_x, head_y), tuple(food))
+        if path:
+            path = list(path)
+            if len(path) < current_minimum:
+                current_minimum = len(path)
+                current_path = path
+                
+    return current_path
+
+
+
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
     a_star_object = astar.AStarAlgorithm(grid_options[0], width, height)
-
-
-
     myTail = (mySnake[-1].get("x"), mySnake[-1].get("y"))
     myLength = len(mySnake)
     #find tail
@@ -127,20 +139,11 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         return get_move_letter((head_x, head_y), path[1])
     #NOTE get food mode
     else:
-        current_minimum = float('inf')
-        current_path = None
-        for food in grid_options[1]:
-            path = a_star_object.astar((head_x, head_y), tuple(food))
-            if path:
-                path = list(path)
-                if len(path) < current_minimum:
-                    current_minimum = len(path)
-                    current_path = path
-
-        if current_path:
+        path = get_shortest_path_to_food(grid_options[1], head_x, head_y)
+        if path:
             print('')
             print(path)
-            return get_move_letter((head_x, head_y), current_path[1])
+            return get_move_letter((head_x, head_y), path[1])
         else:
             return 'right'
             #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
