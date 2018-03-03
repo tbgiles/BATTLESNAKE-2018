@@ -138,10 +138,11 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         if current_path:
             return get_move_letter((head_x, head_y), current_path[1])
         else:
-            neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
-            for neighbour in neighbourList:
-                if grid_options[0][neighbour[0], neighbour[1]] != 0:
-                    return get_move_letter((head_x, head_y), neighbour)
+            return 'right'
+            #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
+            #for neighbour in neighbourList:
+                #if grid_options[0][neighbour[0], neighbour[1]] != 0:
+                    #return get_move_letter((head_x, head_y), neighbour)
 
     '''tailx = mySnake[-1].get("x")
     taily = mySnake[-1].get("y")
