@@ -93,8 +93,8 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     print("X coordinate:{}, Y coordinate:{}".format(testTarget[0], testTarget[1]))
     if myLength > 3:
         grid_options[0][testTarget[1]][testTarget[0]] = 1
-        a_star_object = astar.AStarAlgorithm(grid_options[0], width, height)
-        path = a_star_object.astar((head_x, head_y), testTarget)
+        new_bject = astar.AStarAlgorithm(grid_options[0], width, height)
+        path = new_bject.astar((head_x, head_y), testTarget)
         grid_options[0][testTarget[1]][testTarget[0]] = 0
         if path:
             path = list(path)
