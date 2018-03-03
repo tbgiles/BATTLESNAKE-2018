@@ -93,11 +93,11 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
             return 'left' #TODO what do we do if there's no path?
         return get_move_letter((head_x, head_y), path[1])
     else:
-        x = mySnake[-1].get("x")
-        y = mySnake[-1].get("y")
+        tailx = mySnake[-1].get("x")
+        taily = mySnake[-1].get("y")
         print('')
         print("X coordinate:{}, Y coordinate:{}".format(x, y))
-        path = astar.compute(grid_options[0], (head_x, head_y), (x, y), width, height)
+        path = astar.compute(grid_options[0], (head_x, head_y), (tailx, taily), width, height)
         if path:
             path = list(path)
         else:
