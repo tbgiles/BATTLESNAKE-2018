@@ -89,7 +89,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     myLength = len(mySnake)
     print('')
     print("X coordinate:{}, Y coordinate:{}".format(testTarget[0], testTarget[1]))
-    if myLength > 3
+    if myLength > 3:
         path = a_star_object.astar((head_x, head_y), testTarget)
         if path:
             path = list(path)
