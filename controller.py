@@ -1,6 +1,6 @@
 import astar, math, sys, random
 
-def grid_setup(food, width, height, snakes, mySnake):
+def grid_setup(food, width, height, snakes):
 
     generic_grid = []
     #General grid setup
@@ -23,27 +23,22 @@ def grid_setup(food, width, height, snakes, mySnake):
         for point in body:
             pointX = point.get("x")
             pointY = point.get("y")
-            print("new point Y = {}, new point X = {} grid x length = {}, grid y length = {}".format(pointY, pointX,len(generic_grid[0]), len(generic_grid)))
+            #print("new point Y = {}, new point X = {} grid x length = {}, grid y length = {}".format(pointY, pointX,len(generic_grid[0]), len(generic_grid)))
             generic_grid[pointY][pointX] = 0
-
-    for point in mySnake:
-        pointX = point.get("x")
-        pointY = point.get("y")
-        generic_grid[pointY][pointX] = 0
 
     grid_options = []
 
     grid_options.append(generic_grid)
     grid_options.append(food_grid)
 
-    print('')
+    '''print('')
     for y in range(0, width):
         print('')
         for x in range(0, height):
             if generic_grid[y][x] == 0:
                 print('X', end='')
             else:
-                print('0', end='')
+                print('0', end='')'''
 
     return grid_options
 
