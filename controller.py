@@ -105,7 +105,7 @@ def get_move_letter(start, end):
         return 'up'
 
 
-def get_shortest_path_to_food(food_list, head_x, head_y):
+def get_shortest_path_to_food(a_star_object, food_list, head_x, head_y):
     current_minimum = float('inf')
     current_path = None
     for food in food_list:
@@ -115,7 +115,7 @@ def get_shortest_path_to_food(food_list, head_x, head_y):
             if len(path) < current_minimum:
                 current_minimum = len(path)
                 current_path = path
-                
+
     return current_path
 
 
@@ -139,7 +139,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         return get_move_letter((head_x, head_y), path[1])
     #NOTE get food mode
     else:
-        path = get_shortest_path_to_food(grid_options[1], head_x, head_y)
+        path = get_shortest_path_to_food(a_star_object,grid_options[1], head_x, head_y)
         if path:
             print('')
             print(path)
