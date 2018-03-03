@@ -85,15 +85,11 @@ def get_move_letter(start, end):
 
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
     a_star_object = astar.AStarAlgorithm(grid_options[0], width, height)
-    testTarget = (mySnake[-1].get("x"), mySnake[-1].get("y"))
+    myTail = (mySnake[-1].get("x"), mySnake[-1].get("y"))
     myLength = len(mySnake)
-    print('')
-    print(target)
-    print(testTarget)
-    print("X coordinate:{}, Y coordinate:{}, myLength:{}".format(testTarget[0], testTarget[1], myLength))
-    if myLength > 3 and myHealth > 50:
+    if myLength > 3 and myHealth > 85:
         grid_options[0][testTarget[1]][testTarget[0]] = 1
-        path = a_star_object.astar((head_x, head_y), testTarget)
+        path = a_star_object.astar((head_x, head_y), myTail)
         grid_options[0][testTarget[1]][testTarget[0]] = 0
         if path:
             path = list(path)
