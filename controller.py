@@ -119,13 +119,22 @@ def move_to_food(a_star_object, food_list, head_x, head_y):
         return get_move_letter((head_x, head_y), list(current_path)[1])
     return None
 
-def chase_tail(a_star_object, grid_options, mySnake, head_x, head_y):
+def chase_tail(a_star_object, grid_options, mySnake, head_x, head_y, isGonnaGrow):
     myTail = (mySnake[-1].get("x"), mySnake[-1].get("y"))
     grid_options[0][myTail[1]][myTail[0]] = 1
     path = a_star_object.astar((head_x, head_y), myTail)
     grid_options[0][myTail[1]][myTail[0]] = 0
     if path:
-        return get_move_letter((head_x, head_y), list(path)[1])
+        if not isGonnaGrow:
+            return get_move_letter((head_x, head_y), list(path)[1])
+        else:
+            neighbours = get_neighbors(myTail)
+            for neighbour in neighbours:
+                path = a_star_object.astar((head_x, head_y), neighbour)
+                if path:
+                    return get_move_letter((head_x, head_y), list(path)[1])
+
+
     return None
 
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
@@ -135,7 +144,10 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     #find tail
     #NOTE FIND TAIL MODE
     if myLength > 3 and myHealth > 65: #85
-        move = chase_tail(a_star_object, grid_options, mySnake, head_x, head_y)
+        gonnaGrow = False
+        if myHealth == 100:
+            gonnaGrow = True
+        move = chase_tail(a_star_object, grid_options, mySnake, head_x, head_y, gonnaGrow)
     #NOTE GET FOOD
     else:
         move = move_to_food(a_star_object,grid_options[1], head_x, head_y)
@@ -144,6 +156,20 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         return move
     else:
         return 'right'
+
+    def avoidTail(head, tail):
+        (headx, heady) = head
+        if ((headx - 1), heady) == tail
+            return False
+        if ((headx), heady - 1) == tail
+            return False
+        if ((headx + 1), heady) == tail
+            return False
+        if ((headx), head + 1) == tail
+            return False
+        return True
+
+if myLength > 3 and myHealth > 65 and avoidTail((head_x,head_y),myTail):
 
         #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
         #for neighbour in neighbourList:
