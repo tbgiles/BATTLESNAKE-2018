@@ -12,8 +12,6 @@ from flask import Flask, request, jsonify
 from datetime import datetime
 from timeit import default_timer as timer
 
-game_id = 0
-
 app = Flask(__name__) #App is now an instance of Flask.
 
 @app.route("/start", methods=["POST"])

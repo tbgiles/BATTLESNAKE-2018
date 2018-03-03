@@ -1,6 +1,6 @@
 import astar, math, sys, random
 
-def grid_setup(food, width, height, snakes):
+def grid_setup(food, width, height, snakes, mySnake):
 
     generic_grid = []
     #General grid setup
@@ -20,6 +20,14 @@ def grid_setup(food, width, height, snakes):
     #Snake locations:
     for snake in snakes:
         body = snake.get("body").get("data")
+        if body not == mySnake:
+            head = body[0]
+            headX = head.get("x")
+            headY = head.get("y")
+            generic_grid[headY - 1][headX] = 0
+            generic_grid[headY + 1][headX] = 0
+            generic_grid[headY][headX - 1] = 0
+            generic_grid[headY][headX + 1] = 0
         for point in body:
             pointX = point.get("x")
             pointY = point.get("y")
@@ -61,6 +69,11 @@ def get_closest_food(food_list, head_x, head_y):
             current_minimum = pellet_distance
             target_position = position
     return tuple(target_position)
+
+def get_food_by_distance(food_list, head_x, head_y):
+    current_minimum = 10000
+    food_by_distance
+    for position in food_list;
 
 def get_neighbors(node, lines, height, width):
     (x, y) = node #changed from x, y
