@@ -129,10 +129,10 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
             if path:
                 path = list(path)
                 if len(path) < current_minimum:
-                    current_minimum = path.length
+                    current_minimum = len(path)
                     current_path = path
 
-        return get_move_letter((head_x, head_y), path[1])
+        return get_move_letter((head_x, head_y), current_path[1])
 
 
 
