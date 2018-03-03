@@ -84,7 +84,7 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
-    if health < 50:
+    if myHealth < 50:
         path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
         if path:
             path = list(path)
