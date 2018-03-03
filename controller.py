@@ -84,7 +84,7 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
-    a_star_object = AStarAlgorithm(grid_options[0], width, height)
+    a_star_object = astar.AStarAlgorithm(grid_options[0], width, height)
     testTarget = (mySnake[-1].get("x"), mySnake[-1].get("y"))
 
     print('')
