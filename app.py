@@ -43,11 +43,11 @@ def start():
 @app.route("/move", methods=["POST"])
 def move():
     #start = timer() #NOTE THIS IS OUR TIMER START POINT
-    global height
-    global width
+    data = request.get_json()
+    width = data.get("width")
+    height = date.get("height")
     print('')
     print("Game height:{}, Game width:{}".format(height,width))
-    data = request.get_json()
     food = data.get("food").get("data") #Array
     snakes = data.get("snakes").get("data") #Array
     you = data.get("you")
