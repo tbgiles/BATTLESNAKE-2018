@@ -114,7 +114,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     myLength = len(mySnake)
     #find tail
     #NOTE FIND TAIL MODE
-    if myLength > 3 and myHealth > 85:
+    if myLength > 3 and myHealth > 65: #85
         grid_options[0][myTail[1]][myTail[0]] = 1
         path = a_star_object.astar((head_x, head_y), myTail)
         grid_options[0][myTail[1]][myTail[0]] = 0
