@@ -45,7 +45,7 @@ def move():
     #start = timer() #NOTE THIS IS OUR TIMER START POINT
     data = request.get_json()
     width = data.get("width")
-    height = date.get("height")
+    height = data.get("height")
     print('')
     print("Game height:{}, Game width:{}".format(height,width))
     food = data.get("food").get("data") #Array

@@ -23,7 +23,7 @@ def grid_setup(food, width, height, snakes, mySnake):
         for point in body:
             pointX = point.get("x")
             pointY = point.get("y")
-            print("new point Y = {}, new point X = {}".format(pointY, pointX))
+            print("new point Y = {}, new point X = {} grid x length = {}, grid y length = {}".format(pointY, pointX,len(generic_grid[0]), len(generic_grid)))
             generic_grid[pointY][pointX] = 0
 
     for point in mySnake:
