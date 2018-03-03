@@ -84,10 +84,19 @@ def get_move_letter(start, end):
 
 
 def get_move(grid_options, target, head_x, head_y, height, width):
-    path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
-    if path:
-        path = list(path)
-    else:
-        ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
-        return 'left' #TODO what do we do if there's no path?
+
+    current_minimum = float('inf')
+    current_shortest_path = None
+
+    for food in food_list:
+        path = astar.compute(grid_options[0], (head_x, head_y), target, width, height)
+        if path:
+            path = list(path)
+            if path.length < current_minimum
+                current_minimum = path.length
+                current_shortest_path = path
+        else:
+            ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
+            return 'left' #TODO what do we do if there's no path?
+            
     return get_move_letter((head_x, head_y), path[1])
