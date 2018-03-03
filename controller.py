@@ -94,14 +94,14 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         if path:
             path = list(path)
         else:
-            return 'left'
+            return 'right'
         return get_move_letter((head_x, head_y), path[1])
     else:
         path = a_star_object.astar((head_x, head_y), target)
         if path:
             path = list(path)
         else:
-            return 'left'
+            return 'right'
         return get_move_letter((head_x, head_y), path[1])
 
 
