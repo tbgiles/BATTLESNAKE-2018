@@ -144,7 +144,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     move = move_to_food(a_star_object,grid_options[1], head_x, head_y)
 
     #NOTE FIND TAIL MODE
-    if myLength > 3 and myHealth > 65 or move = None: #85
+    if myLength > 3 and myHealth > 65 or move == None: #85
         gonnaGrow = False
         if myHealth == 100:
             gonnaGrow = True
