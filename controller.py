@@ -95,7 +95,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         tailx = mySnake[-1].get("x")
         taily = mySnake[-1].get("y")
         print('')
-        print("X coordinate:{}, Y coordinate:{}".format(x, y))
+        print("X coordinate:{}, Y coordinate:{}".format(tailx, taily))
         path = astar.compute(grid_options[0], (head_x, head_y), (tailx, taily), width, height)
         if path:
             path = list(path)
