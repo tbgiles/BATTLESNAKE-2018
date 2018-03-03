@@ -42,12 +42,13 @@ def start():
 
 @app.route("/move", methods=["POST"])
 def move():
-    start = timer() #NOTE THIS IS OUR TIMER START POINT
+    #start = timer() #NOTE THIS IS OUR TIMER START POINT
+    print('')
+    print("Game height:{}, Game width:{}".format(height,width))
     data = request.get_json()
     food = data.get("food").get("data") #Array
     snakes = data.get("snakes").get("data") #Array
     you = data.get("you")
-
     myHealth = you.get("body").get("health")
     myLength = you.get("body").get("length")
     mySnake = you.get("body").get("data")
@@ -66,8 +67,8 @@ def move():
     next_move = controller.get_move(grid_options, target_food, mySnakeX, mySnakeY, height, width)
 
     #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
-    end = timer()
-    print("RUNTIME: {0}ms. MAX 200ms, currently using {1}%".format(((end - start) * 1000),(((end - start) * 1000) / 2)))
+    #end = timer()
+    #print("RUNTIME: {0}ms. MAX 200ms, currently using {1}%".format(((end - start) * 1000),(((end - start) * 1000) / 2)))
 
     #NOTE Return the move in the JSON object wrapper
     return jsonify(
