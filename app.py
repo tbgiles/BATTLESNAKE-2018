@@ -46,11 +46,11 @@ def move():
     data = request.get_json()
     food = data.get("food").get("data") #Array
     snakes = data.get("snakes").get("data") #Array
-    you = data.get("you")
+    you = data.get("you").get("body")
 
-    myHealth = you.get("body").get("health")
-    myLength = you.get("body").get("length")
-    mySnake = you.get("body").get("data")
+    myHealth = you.get("health")
+    myLength = you.get("length")
+    mySnake = you.get("data")
 
     #NOTE grid_options[0] = general_grid // grid_options[1] = food_grid
     grid_options = controller.grid_setup(food, width, height, snakes)
