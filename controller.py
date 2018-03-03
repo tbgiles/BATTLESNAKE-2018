@@ -131,19 +131,16 @@ def chase_tail(a_star_object, grid_options, mySnake, head_x, head_y):
 def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHealth):
     a_star_object = astar.AStarAlgorithm(grid_options[0], width, height)
 
-    myLength = len(mySnake)
-    #find tail
-    #NOTE FIND TAIL MODE
-    if myLength > 3 and myHealth > 65: #85
+    #determine path of nearest food
+    move = move_to_food(a_star_object,grid_options[1], head_x, head_y)
+    #if snake doesn't need food or if food doesn't exit, chase tail like the dumb piece of shit you are
+    if len(mySnake) > 3 and myHealth > 65 or move = None: #85
         move = chase_tail(a_star_object, grid_options, mySnake, head_x, head_y)
-    #NOTE GET FOOD
-    else:
-        move = move_to_food(a_star_object,grid_options[1], head_x, head_y)
 
     if move:
         return move
     else:
-        return 'right'
+        'right'
 
         #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
         #for neighbour in neighbourList:
