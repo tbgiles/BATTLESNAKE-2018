@@ -39,7 +39,7 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
                 generic_grid[headY][left] = 0
             if right < width:
                 generic_grid[headY][right] = 0
-                
+
         for point in body:
             pointX = point.get("x")
             pointY = point.get("y")
@@ -51,14 +51,14 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
     grid_options.append(generic_grid)
     grid_options.append(food_grid)
 
-    '''print('')
+    print('')
     for y in range(0, width):
         print('')
         for x in range(0, height):
             if generic_grid[y][x] == 0:
                 print('X', end='')
             else:
-                print('0', end='')'''
+                print('0', end='')
 
     return grid_options
 
@@ -110,6 +110,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
 
     myTail = (mySnake[-1].get("x"), mySnake[-1].get("y"))
     myLength = len(mySnake)
+    #find tail
     if myLength > 3 and myHealth > 85:
         grid_options[0][myTail[1]][myTail[0]] = 1
         path = a_star_object.astar((head_x, head_y), myTail)
@@ -120,7 +121,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         else:
             return 'right'
         return get_move_letter((head_x, head_y), path[1])
-
+    #get food
     else:
 
         path = a_star_object.astar((head_x, head_y), target)
