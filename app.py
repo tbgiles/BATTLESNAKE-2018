@@ -43,6 +43,8 @@ def start():
 @app.route("/move", methods=["POST"])
 def move():
     #start = timer() #NOTE THIS IS OUR TIMER START POINT
+    global height
+    global width
     print('')
     print("Game height:{}, Game width:{}".format(height,width))
     data = request.get_json()
