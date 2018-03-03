@@ -113,6 +113,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     myTail = (mySnake[-1].get("x"), mySnake[-1].get("y"))
     myLength = len(mySnake)
     #find tail
+    #NOTE FIND TAIL MODE
     if myLength > 3 and myHealth > 85:
         grid_options[0][myTail[1]][myTail[0]] = 1
         path = a_star_object.astar((head_x, head_y), myTail)
@@ -122,12 +123,12 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         else:
             return 'right'
         return get_move_letter((head_x, head_y), path[1])
-    #get food
+    #NOTE get food mode
     else:
         current_minimum = float('inf')
         current_path = None
         for food in grid_options[1]:
-            path = a_star_object.astar((head_x, head_y), food)
+            path = a_star_object.astar((head_x, head_y), tuple(food))
             if path:
                 path = list(path)
                 if len(path) < current_minimum:
