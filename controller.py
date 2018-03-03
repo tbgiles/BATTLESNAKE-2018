@@ -55,8 +55,10 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
     for y in range(0, width):
         print('')
         for x in range(0, height):
-            if generic_grid[y][x] == 0:
+            if generic_grid[y][x] == 0 and (x, y) not in food_grid:
                 print('X', end='')
+            elif (x, y) in food_grid:
+                print('F', end = '')
             else:
                 print('0', end='')
 
@@ -131,6 +133,8 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
                 if len(path) < current_minimum:
                     current_minimum = len(path)
                     current_path = path
+                    print('')
+                    print(path)
 
         return get_move_letter((head_x, head_y), current_path[1])
 
