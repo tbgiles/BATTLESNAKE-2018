@@ -89,8 +89,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         if path:
             path = list(path)
         else:
-            ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
-            return 'left' #TODO what do we do if there's no path?
+            return 'left'
         return get_move_letter((head_x, head_y), path[1])
     else:
         tailx = mySnake[-1].get("x")
@@ -101,6 +100,5 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         if path:
             path = list(path)
         else:
-            ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
-            return 'left' #TODO what do we do if there's no path?
+            return 'left'
         return get_move_letter((head_x, head_y), path[1])
