@@ -31,7 +31,7 @@ def start():
 
 @app.route("/move", methods=["POST"])
 def move():
-    debug = true
+    debug = True
     data = request.get_json()
     width = data.get("width")
     height = data.get("height")
@@ -64,9 +64,11 @@ def move():
     #NOTE Get the next move based on the pellet
     next_move = controller.get_move(grid_options, target_food, mySnakeX, mySnakeY, height, width)
 
-    #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
-    #end = timer()
-    #print("RUNTIME: {0}ms. MAX 200ms, currently using {1}%".format(((end - start) * 1000),(((end - start) * 1000) / 2)))
+    if debug:
+        #NOTE This is the end reference point of the timer. Just to get a good idea of what the runtime of the program is in total
+        end = timer()
+        print('')
+        print("RUNTIME: {0}ms. MAX 200ms, currently using {1}%".format(((end - start) * 1000),(((end - start) * 1000) / 2)))
 
     #NOTE Return the move in the JSON object wrapper
     return jsonify(
@@ -75,7 +77,7 @@ def move():
 
 @app.route("/end", methods=["POST"])
 def end():
-    return true, 200
+    return '', 200
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, use_reloader=True)
