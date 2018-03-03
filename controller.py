@@ -9,8 +9,6 @@ def grid_setup(food, width, height, snakes):
         for x in range(0, width):
             new_list.append(1)
         generic_grid.append(new_list)
-        print(width)
-        print(height)
 
     food_grid = []
     #Food locations
@@ -25,10 +23,6 @@ def grid_setup(food, width, height, snakes):
         for point in body:
             pointX = point.get("x")
             pointY = point.get("y")
-            print('x')
-            print(pointX)
-            print('y')
-            print(pointY)
             generic_grid[pointY][pointX] = 0
 
     grid_options = []
@@ -36,14 +30,14 @@ def grid_setup(food, width, height, snakes):
     grid_options.append(generic_grid)
     grid_options.append(food_grid)
 
-    '''print('')
+    print('')
     for y in range(0, width):
         print('')
         for x in range(0, height):
             if snake_grid[y][x] == 0:
                 print('X', end='')
             else:
-                print('0', end='')'''
+                print('0', end='')
 
     return grid_options
 

@@ -28,6 +28,8 @@ def start():
     height = data.get("height")
     width = data.get("width")
 
+    print("Board width = {}, Board height = {}".format(width, height))
+
     return jsonify(
         color = "#800000",
         secondary_color = "#000000",
@@ -58,7 +60,9 @@ def move():
     #NOTE Now, set our coordinates!
     mySnakeX = mySnake[0].get("x")
     mySnakeY = mySnake[0].get("y")
+    print("Snake x = {}, Snake y = {}".format(mySnakeX, mySnakeY))
 
+    print
     #NOTE Search for the coordinates of the closest food pellet
     target_food = controller.get_closest_food(grid_options[1], mySnakeX, mySnakeY)
 
