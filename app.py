@@ -51,6 +51,8 @@ def move():
     food = data.get("food").get("data") #Array
     snakes = data.get("snakes").get("data") #Array
     you = data.get("you")
+    print('')
+    print('turn = {}'.format(data.get("turn")))
     myHealth = you.get("body").get("health")
     myLength = you.get("body").get("length")
     mySnake = you.get("body").get("data")
