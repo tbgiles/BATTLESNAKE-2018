@@ -21,7 +21,7 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
     for snake in snakes:
         body = snake.get("body").get("data")
         snakeID = snake.get("id")
-        if snakeID not == mySnakeID:
+        if snakeID != mySnakeID:
             head = body[0]
             headX = head.get("x")
             headY = head.get("y")
@@ -116,10 +116,13 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         grid_options[0][myTail[1]][myTail[0]] = 0
         if path:
             path = list(path)
+
         else:
             return 'right'
         return get_move_letter((head_x, head_y), path[1])
+
     else:
+
         path = a_star_object.astar((head_x, head_y), target)
         if path:
             path = list(path)
