@@ -122,12 +122,17 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         return get_move_letter((head_x, head_y), path[1])
     #get food
     else:
+        current_minimum = float('inf')
+        current_path = None
+        for food in grid_options[1]:
+            path = a_star_object.astar((head_x, head_y), target)
+            if path:
+                path = list(path)
+                if path.length < current_minimum:
+                    current_minimum = path.length
+                    current_path = path
 
-        path = a_star_object.astar((head_x, head_y), target)
-        if path:
-            path = list(path)
-        else:
-            return 'right'
+
         return get_move_letter((head_x, head_y), path[1])
 
 
