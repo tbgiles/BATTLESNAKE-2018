@@ -127,7 +127,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         current_minimum = float('inf')
         current_path = None
         for food in grid_options[1]:
-            path = a_star_object.astar((head_x, head_y), target)
+            path = a_star_object.astar((head_x, head_y), food)
             if path:
                 path = list(path)
                 if len(path) < current_minimum:
