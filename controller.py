@@ -1,16 +1,16 @@
 import astar, math, sys, random
 
-def grid_setup(food, width, height, snakes):
+def grid_setup(food, width, height, snakes, mySnake):
 
     generic_grid = []
     #General grid setup
     for y in range(0, height):
         new_list = []
+        print('')
         for x in range(0, width):
             new_list.append(1)
+            print("X", end="")
         generic_grid.append(new_list)
-        print(width)
-        print(height)
 
     food_grid = []
     #Food locations
@@ -25,25 +25,27 @@ def grid_setup(food, width, height, snakes):
         for point in body:
             pointX = point.get("x")
             pointY = point.get("y")
-            print('x')
-            print(pointX)
-            print('y')
-            print(pointY)
+            print("Point Y = {}, Point X = {}".format(pointY, pointX))
             generic_grid[pointY][pointX] = 0
+
+    for point in mySnake:
+        pointX = point.get("x")
+        pointY = point.get("y")
+        generic_grid[pointY][pointX] = 0
 
     grid_options = []
 
     grid_options.append(generic_grid)
     grid_options.append(food_grid)
 
-    '''print('')
+    print('')
     for y in range(0, width):
         print('')
         for x in range(0, height):
-            if snake_grid[y][x] == 0:
+            if generic_grid[y][x] == 0:
                 print('X', end='')
             else:
-                print('0', end='')'''
+                print('0', end='')
 
     return grid_options
 
@@ -78,12 +80,6 @@ def get_move_letter(start, end):
     nextY = end[1]
     deltaX = nextX - currX
     deltaY = nextY - currY
-
-    '''print('dx')
-    print(deltaX)
-    print('dy')
-    print(deltaY)'''
-
     if deltaX > 0:
         return 'right'
     elif deltaY > 0:
@@ -100,7 +96,5 @@ def get_move(grid_options, target, head_x, head_y, height, width):
         path = list(path)
     else:
         ##return get_neighbors((head_x, head_y), grid_options[0], height, width)[0]
-        return 'up' #TODO what do we do if there's no path?
-
-    desired_next_position = path[1] #NOTE the 0'th coordinate is the current position
-    return get_move_letter((head_x, head_y), desired_next_position)
+        return 'left' #TODO what do we do if there's no path?
+    return get_move_letter((head_x, head_y), path[1])
