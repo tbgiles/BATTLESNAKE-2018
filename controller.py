@@ -51,14 +51,14 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
     grid_options.append(generic_grid)
     grid_options.append(food_grid)
 
-    print('')
+    '''print('')
     for y in range(0, width):
         print('')
         for x in range(0, height):
             if generic_grid[y][x] == 0 :
                 print('X', end='')
             else:
-                print('0', end='')
+                print('0', end='')'''
 
     return grid_options
 
@@ -153,21 +153,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
         return move
     else:
         neighbours = get_neighbors((head_x, head_y), grid_options[0], height, width)
-        print(neighbours)
-        return get_move_letter((head_x, head_y), neighbours[0])
-
-        #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
-        #for neighbour in neighbourList:
-            #if grid_options[0][neighbour[0], neighbour[1]] != 0:
-                #return get_move_letter((head_x, head_y), neighbour)
-
-    '''tailx = mySnake[-1].get("x")
-    taily = mySnake[-1].get("y")
-    print('')
-    print("X coordinate:{}, Y coordinate:{}".format(tailx, taily))
-    path = astar.compute(grid_options[0], (head_x, head_y), (tailx, taily), width, height)
-    if path:
-        path = list(path)
-    else:
-        return 'left'
-    return get_move_letter((head_x, head_y), path[1])'''
+        if neighbours:
+            return get_move_letter((head_x, head_y), neighbours[0])
+        else:
+            return 'left'
