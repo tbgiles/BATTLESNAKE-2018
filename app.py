@@ -25,7 +25,7 @@ def start():
     #width = data.get("width")
     #NOTE Trying to get height and width here was giving me problems!
 
-    return jsonify( color = "#E0FFFF", secondary_color = "#000000", name = "FiestySnake", taunt = "Mess with Snekko, better run like hecko", head_type = "shades", tail_type = "freckled", head_url = "http://scp-wiki.wdfiles.com/local--files/scp-1545/Larry%20the%20Loving%20Llama.jpg")
+    return jsonify( color = "#E0FFFF", secondary_color = "#000000", name = "FeistySnake", taunt = "Mess with Snekko, better run like hecko", head_type = "shades", tail_type = "freckled", head_url = "http://scp-wiki.wdfiles.com/local--files/scp-1545/Larry%20the%20Loving%20Llama.jpg")
 
 @app.route("/move", methods=["POST"])
 def move():

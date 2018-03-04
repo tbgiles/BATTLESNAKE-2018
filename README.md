@@ -1,6 +1,6 @@
 <img align="centre" style="padding-left:100px;" src="https://static-cdn.jtvnw.net/twitch-event-images-v2/84776231-3405-4895-9f8c-2306d9b9422f-320x180">
 
-# BATTLESNAKE 2018
+# BATTLESNAKE 2018 - WINNER (Beginner Category)
 ## A BattleSnake competition AI written by Kelly, Duncan, Laura, Liam, and Tristan!
 ## (Written with ❤️, Python, gUnicorn, and Flask!)
 
