@@ -55,10 +55,8 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
     for y in range(0, width):
         print('')
         for x in range(0, height):
-            if generic_grid[y][x] == 0 and (x, y) not in food_grid:
+            if generic_grid[y][x] == 0 :
                 print('X', end='')
-            elif (x, y) in food_grid:
-                print('F', end = '')
             else:
                 print('0', end='')
 
