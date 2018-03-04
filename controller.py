@@ -51,7 +51,7 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
     grid_options.append(generic_grid)
     grid_options.append(food_grid)
 
-    '''print('')
+    print('')
     for y in range(0, width):
         print('')
         for x in range(0, height):
@@ -60,7 +60,7 @@ def grid_setup(food, width, height, snakes, mySnake, mySnakeID):
             elif (x, y) in food_grid:
                 print('F', end = '')
             else:
-                print('0', end='')'''
+                print('0', end='')
 
     return grid_options
 
@@ -141,7 +141,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     a_star_object = astar.AStarAlgorithm(grid_options[0], width, height)
 
     myLength = len(mySnake)
-    move = move_to_food(a_star_object,grid_options[1], head_x, head_y)
+    move = move_to_food(a_star_object, grid_options[1], head_x, head_y)
 
     #NOTE FIND TAIL MODE
     if myLength > 3 and myHealth > 75 or move == None: #85
@@ -154,7 +154,9 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     if move:
         return move
     else:
-        return get_move_letter((head_x, head_y), get_neighbors((head_x, head_y), grid_options[0], height, width)[0])
+        neighbours = get_neighbors((head_x, head_y), grid_options[0], height, width)
+        print(neighbours)
+        return get_move_letter((head_x, head_y), neighbours[0])
 
         #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
         #for neighbour in neighbourList:
