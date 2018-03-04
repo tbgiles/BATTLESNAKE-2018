@@ -154,7 +154,7 @@ def get_move(grid_options, target, head_x, head_y, height, width, mySnake, myHea
     if move:
         return move
     else:
-        'right'
+        return get_move_letter((head_x, head_y), get_neighbors((head_x, head_y), grid_options[0], height, width)[0])
 
         #neighbourList = get_neighbors((head_x, head_y), grid_options[0], height, width)
         #for neighbour in neighbourList:
